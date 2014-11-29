@@ -12,7 +12,7 @@ alias ll='ls -altr'
 alias lld="ls -altr | grep ^d"
 alias llf="ls -altr | grep -v ^d"
 alias lower='tr  "[:upper:]" "[:lower:]"'
-alias ls='ls --color=auto'
+alias ls='ls -G'
 alias nets='netstat -nr | less'
 alias psa="ps -aux"
 alias routes='netstat -nr | less'
