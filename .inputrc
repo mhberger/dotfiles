@@ -1,0 +1,29 @@
+set show-all-if-ambiguous on
+set bell-style none
+
+$if mode=emacs
+  "\C-b": backward-word
+  "\C-f": forward-word
+  "\C-l": clear-screen
+$endif
+
+$if mode=vi
+  set keymap vi-insert
+  $if Bash
+    "\C-l": "\e\C-la"
+    "\C-p": previous-history
+    "\C-n": next-history
+  $endif
+
+  set keymap vi-command
+  $if Bash
+    "\C-l": clear-screen
+  $endif
+$endif
+
+
+
+# command mode bindings
+# set keymap vi-command
+# "|": beginning-of-line
+# "_": vi-first-print
