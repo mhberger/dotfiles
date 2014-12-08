@@ -24,7 +24,8 @@ alias calm='cal -m'
 alias sha1="openssl sha1"
 alias sha256="openssl sha256"
 alias vv="vagrant"
-alias b2d='$(boot2docker shellinit)'
+alias b2d='boot2docker'
+alias b2dinit='$(boot2docker shellinit)'
 
 export GIT_AUTHOR_EMAIL=mark.berger@moothall.nz
 export GIT_AUTHOR_NAME='Mark Berger'
