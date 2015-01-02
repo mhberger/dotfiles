@@ -1,0 +1,23 @@
+[core]
+  commentchar = >
+  pager = /opt/local/bin/less -F -X
+[i18n]
+  logOutputEncoding = utf-8
+[color]
+  ui = auto
+[user]
+  name = Mark Berger
+  email = mark.berger@moothall.com
+[push]
+  default = current
+[core]
+  quotepath = false
+  excludesfile = /Users/mark/.gitignore_global
+[mergetool]
+  keepBackup = true
+[hub]
+  protocol = https
+[alias]
+  ignore = !git update-index --assume-unchanged
+  unignore = !git update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep ^[a-z]
