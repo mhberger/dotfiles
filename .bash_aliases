@@ -27,6 +27,13 @@ alias vv="vagrant"
 alias b2d='boot2docker'
 alias b2dinit='$(boot2docker shellinit)'
 
+alias uniqc='sort | uniq -c'
+alias dush='du -hs .[^.]* *'
+
+alias jb='jbake'
+alias jbb='jbake -b'
+alias jj='jbb && rm output/2*.html && ./splitfile.sh'
+
 export GIT_AUTHOR_EMAIL=mark.berger@moothall.nz
 export GIT_AUTHOR_NAME='Mark Berger'
 export GIT_COMMITTER_EMAIL=mark.berger@moothall.nz
