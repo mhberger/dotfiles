@@ -15,8 +15,12 @@
   excludesfile = /Users/mark/.gitignore_global
 [mergetool]
   keepBackup = true
+[pull]
+  rebase = preserve
 [hub]
   protocol = https
+[github]
+  user = mhberger
 [alias]
   ignore = !git update-index --assume-unchanged
   unignore = !git update-index --no-assume-unchanged
