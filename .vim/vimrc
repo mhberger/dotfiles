@@ -1,12 +1,12 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 let mapleader = "\<Space>"
 " let mapleader = ","
@@ -105,6 +105,7 @@ Plugin 'textobj-entire'
 "Plugin 'git://git.wincent.com/command-t.git'
 " ...
 
+call vundle#end()
 filetype plugin indent on     " required!
 
 " Brief help
@@ -136,7 +137,7 @@ augroup END
 
 " Set crypt method
 set cm=blowfish
-set directory=/Users/mark/tmp/vimtemp/
+set directory=~/tmp/vimtemp/
 set tildeop
 
   syntax enable
@@ -353,9 +354,9 @@ nnoremap <silent> <D-CR> :ZoomToggle<CR>
   " diffing multiple windows
   nnoremap <Leader>wd :windo diffthis<cr>
   nnoremap <Leader>wdo :windo diffoff<cr>
-  " nnoremap ,vt :exe "tabe <Bar> :r ! w3m -dump /Users/mark/dev/vim/vimtips.html" <Bar> norm gg<CR>
-  nnoremap <Leader>vt :tabnew /Users/mark/dev/vim/vimtips/vimtips.txt <CR>
-  " nnoremap ,vt :tabe | :r ! w3m -dump /Users/mark/dev/vim/vimtips.html
+  " nnoremap ,vt :exe "tabe <Bar> :r ! w3m -dump ~/.vim/vimtips.html" <Bar> norm gg<CR>
+  nnoremap <Leader>vt :tabnew ~/.vim/vimtips/vimtips.txt <CR>
+  " nnoremap ,vt :tabe | :r ! w3m -dump ~/.vim/vimtips/vimtips.html
   " Fixing up yank and put - use register y as default so that dd doesn't
   " interfere with it
   " this was a bit yuck as sometimes we want to yank/put from a different
@@ -409,7 +410,7 @@ vmap V <Plug>(expand_region_shrink)
 " nnoremap <silent> <F2> :YRShow<CR>
 " vnoremap <silent> <F2> :YRShow<CR>
 " inoremap <silent> <F2> :YRShow<CR>
-" let g:yankring_history_dir = '/Users/mark/tmp/vimtemp/'
+" let g:yankring_history_dir = '~/tmp/vimtemp/'
 
 "------------------------
 " COMMAND-T
