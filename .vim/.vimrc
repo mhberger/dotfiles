@@ -1,0 +1,641 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Plugin 'gmarik/vundle'
+
+let mapleader = "\<Space>"
+" let mapleader = ","
+
+"------------------------
+" let g:quickrun_config = {'outputter/buffer/split': ""}
+let g:quickrun_config = {'outputter/buffer/name': "joe_run",'outputter/buffer/split': "", 'output/buffer/into': "1"}
+" let g:quickrun_config.groovy = {'command' : 'groovyclient'}
+let g:quickrun_no_default_key_mappings = 1
+" let macvim_hig_shift_movement = 1
+" nmap ,r <Plug>(quickrun) call it using ,r
+"nmap ,r <Plug>(quickrun) -outputter/buffer/name 'joe'
+nnoremap <Leader>r :QuickRun -outputter/buffer/into '1' <CR>
+" Save previous search, remove all trailing spaces; restore previous search; turn off highlighting.
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <F6> :se wrap!<CR>
+nnoremap <silent> <F12> :b#<CR>
+" inoremap <Leader>/ <ESC>F<lyt>$a</">
+" LVTHW – Uppercase current word
+inoremap <c-u> <esc>viwU`^i
+nnoremap <c-u> viwU
+" Add vim line at bottom of file
+" nnoremap <Leader>v Go<!--<cr>vim:ft=markdown:tw=73<cr>--><esc>gg
+nnoremap \v Go<!--<cr>vim:ft=markdown:tw=73<cr>--><esc>gg
+
+"------------------------
+" MY BUNDLES
+"------------------------
+" runtime macros/matchit.vim
+" original repos on github
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'thinca/vim-quickrun'
+" Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'coderifous/textobj-word-column.vim'
+Plugin 'rking/ag.vim'
+
+" vim-scripts
+Plugin 'matchit.zip'
+" Bundle 'bufexplorer.zip'
+Plugin 'ctrlp.vim'
+Plugin 'Textile-for-VIM'
+"Plugin 'ack.vim'
+Plugin 'loremipsum'
+Plugin 'L9'
+Plugin 'Solarized'
+" Plugin 'unimpaired.vim'
+Plugin 'SQLComplete.vim'
+" Plugin 'EnhCommentify.vim'
+" Plugin 'ZoomWin'
+Plugin 'UltiSnips'
+Plugin 'EasyGrep'
+Plugin 'Tabular'
+" Plugin 'YankRing.vim'
+Plugin 'BufOnly.vim'
+Plugin 'repeat.vim'
+Plugin 'rizzatti/funcoo.vim'
+Plugin 'rizzatti/dash.vim'
+Plugin 'honza/vim-snippets'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
+Plugin 'nelstrom/vim-qargs'
+Plugin 'bling/vim-airline'
+Plugin 'itspriddle/vim-marked'
+Plugin 'kana/vim-textobj-user'
+Plugin 'reedes/vim-textobj-quote'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'tpope/vim-rsi'
+" Plugin 'dahu/Asif'
+" Plugin 'dahu/vimple'
+" Plugin 'dahu/vim-asciidoc'
+Plugin 'terryma/vim-expand-region'
+Plugin 'textobj-entire'
+
+
+"------------------------
+" VUNDLE SAMPLE BUNDLES
+"------------------------
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'tpope/vim-rails.git'
+" vim-scripts repos
+"Plugin 'L9'
+"Plugin 'FuzzyFinder'
+" non github repos
+"Plugin 'git://git.wincent.com/command-t.git'
+" ...
+
+filetype plugin indent on     " required!
+
+" Brief help
+" :PluginList          - list configured bundles
+" :PluginInstall(!)    - install(update) bundles
+" :PluginSearch(!) foo - search(or refresh cache first) for foo
+" :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+"------------------------
+"  ME
+"------------------------
+
+" Banners from http://stackoverflow.com/questions/5085892/textmate-comment-banner-in-vim
+" autocmd FileType vim map <leader>ccb I"<Del>  <Esc>A  "<Del><Esc>yyp0lv$hhr"yykPjj
+augroup mhb_filetypes
+  autocmd!
+  autocmd FileType groovy,java,javascript,php,c map <leader>ccb I//  <Esc>A  //<Esc>yyp0llv$hhhr-yykPjj
+  autocmd FileType sql map <leader>ccb I--  <Esc>A  --<Esc>yyp0llv$hhhr-yykPjj
+  autocmd FileType text,txt,textile map <leader>ccb I--  <Esc>A    <Esc>yyp0llv$hhhr-yykPjj
+  autocmd Filetype text,txt,textile setlocal comments=fb:-,fb:*
+  autocmd FileType css map <leader>ccb I/*  <Esc>A  */<Esc>yyp0llvt*r-<Esc>yykPjj
+  autocmd FileType groovy set commentstring=//\ %s
+  autocmd FileType gsp set commentstring=\%\{--\ %s\ --\}\%
+  " autocmd FileType python,ruby,sh,zsh map <leader>ccb I#  <Esc>A  #<Esc>yyp0lv$hhr-yykPjj
+augroup END
+
+" Set crypt method
+set cm=blowfish
+set directory=/Users/mark/tmp/vimtemp/
+set tildeop
+
+  syntax enable
+  set history=500
+" set background=dark
+" colorscheme solarized
+" set gfn=Monaco:h11.5
+" set gfn=Inconsolata:h14
+  set t_Co=256
+  set ruler
+  set nowrap
+  set tabstop=2
+  set shiftwidth=2
+  set expandtab
+  set textwidth=0
+  set number
+  set virtualedit=all
+  set list listchars=nbsp:§,eol:¬,tab:→\ ,trail:·
+  set splitright
+  set splitbelow
+  set autoindent
+  set smartindent
+  set smarttab
+  set noeb vb t_vb=
+" set clipboard=unnamed
+  set guioptions-=T
+  set switchbuf+=usetab,newtab
+
+  " Set status line to show git status
+  " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+  "
+  " Always show status line even if there is one window
+  set laststatus=2
+
+" From stevelosh http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+  " nnoremap / /\v
+  " vnoremap / /\v
+  set ignorecase
+  set smartcase
+  set gdefault
+  " set incsearch
+  " set showmatch
+  " set hlsearch
+  "nnoremap ,<space> :noh<cr>
+  nnoremap <Leader><space> :se hlsearch!<cr>
+  " kak advice - causes ctrl-i to break
+  " nnoremap <tab> %
+  " vnoremap <tab> %
+  noremap <Leader>st 0f>lK$F<Kkwgq$
+  nnoremap <Leader>a :Ack
+  nnoremap <Leader>ft Vatzf     " Fold tag
+  " Visually select the text that was last edited/pasted
+  nnoremap gV `[v`]
+  " Make a virtual oracle table using DUAL
+  nnoremap <Leader>du :%norm Iselect 'A' file_name from dual union all
+  " Only show lines containing search string – from http://vim.wikia.com/wiki/Folding_with_Regular_Expression
+  nnoremap <Leader>z :setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\\|\\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0 foldcolumn=2<CR>
+  command! -nargs=+ Foldsearch exe "normal /".<q-args>."^M" | setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\|\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0 foldcolumn=2
+  " From vimcasts
+  vnoremap . :norm.<cr>
+
+  " From :help diff
+  " command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
+
+" ----------------------------
+" CREATING CUSTOM MAPPINGS
+" ----------------------------
+"  http://www.linuxquestions.org/questions/programming-9/vim-how-pass-argument-to-key-mapping-933036/
+"  com -nargs=1 H call WebHeader(<f-args>)
+"  function! WebHeader(size)
+"    exe ':s/\(.*\)/<H' . a:size . '>\1<\/H' . a:size . '>/'
+"  endfunction
+
+" ------------------------------
+"   FILTERING SELECTIONS OF TEXT
+" ------------------------------
+
+" http://stackoverflow.com/questions/7845671/executing-base64-decode-on-a-selection-in-vim
+  vnoremap <Leader>ml y:let @"=system('~/dev/ruby/makeLink.rb', @")<cr>gvP
+
+" http://stackoverflow.com/questions/9637921/vim-filter-only-visual-selection-not-the-entire-line
+  " nnoremap <silent> ,! :set opfunc=ProgramFilter<cr>g@
+  " vnoremap <silent> ,! :<c-u>call ProgramFilter(visualmode(), 1)<cr>
+  " function! ProgramFilter(vt, ...)
+  "     let [qr, qt] = [getreg('"'), getregtype('"')]
+  "     let [oai, ocin, osi, oinde] = [&ai, &cin, &si, &inde]
+  "     setl noai nocin nosi inde=
+
+  "     let [sm, em] = ['[<'[a:0], ']>'[a:0]]
+  "     exe 'norm!`' . sm . a:vt . '`' . em . 'x'
+
+  "     call inputsave()
+  "     let cmd = input('!')
+  "     call inputrestore()
+
+  "     let out = system(cmd, @")
+  "     let out = substitute(out, '\n$', '', '')
+  "     exe "norm!i\<c-r>=out\r"
+
+  "     let [&ai, &cin, &si, &inde] = [oai, ocin, osi, oinde]
+  "     call setreg('"', qr, qt)
+  " endfunction
+"
+
+  noremap <Leader>ee y:let @"=system('~/dev/groovy/encode.groovy', @")<cr>gvP
+  noremap <Leader>dd y:let @"=system('~/dev/groovy/decode.groovy', @")<cr>gvP
+
+"------------------------
+"ABBREVIATIONS - SNIPPETS
+"------------------------
+" Use snippets in favour of iab 2013-07-06
+" iab <expr> uuid system("uuidgen")
+" iab <expr> isoD strftime("%Y-%m-%d")
+" iab #!g   #!/usr/bin/env groovy
+" iab #!r   #!/usr/bin/env ruby
+" iab copY  -- Copyright 2012 Red Energy Limited <esc>i<CR>-- Mark Berger <esc>i<CR>\"@strftime("%Y-%m-%d")<esc>
+
+"  UltiSnipsAddFiletypes
+augroup mhb_snippets_surround
+  autocmd!
+  autocmd FileType gsp UltiSnipsAddFiletypes gsp.html
+  "
+  " From surround
+  " echo char2nr("-") => 45
+  " echo char2nr("–") => 8211
+  autocmd FileType gsp let b:surround_42 = "/* \r */"
+  autocmd FileType gsp let b:surround_8211 = "%{-- \r --}%"
+  autocmd FileType gsp let b:surround_59 = "${ \r }"
+  autocmd FileType eruby let b:surround_8211 = "<% if ( 1 == 3 )  { // MHB comment %> \r <% }  %>"
+  autocmd FileType groovy let b:surround_59 = "${\r}"
+
+augroup END
+
+"------------------------
+" WINDOWS
+"------------------------
+" nnoremap <D-S-right> CTRL-W w
+" nnoremap <silent> <A-Up> :wincmd k<CR>
+" nnoremap <silent> <A-Down> :wincmd j<CR>
+" nnoremap <silent> <A-Left> :wincmd h<CR>
+" nnoremap <silent> <A-Right> :wincmd l<CR>
+  nnoremap <D-F1> <C-w>w
+  nnoremap <D-d> <C-w>v
+  nnoremap <D-D> <C-w>s
+  nnoremap <D-F9> <C-w>v
+  nnoremap <D-S-F9> <C-w>s
+" nnoremap <D-F12> :ZoomWin <CR>
+" nnoremap <D-CR> :ZoomWin <CR>
+" From http://stevelosh.com/blog/2010/09/coming-home-to-vim
+  " nnoremap <C-h> <C-w>h
+  " nnoremap <C-j> <C-w>j
+  " nnoremap <C-k> <C-w>k
+  " nnoremap <C-l> <C-w>l
+
+" Zoom / Restore window.
+" http://stackoverflow.com/questions/13194428/is-better-way-to-zoom-windows-in-vim-than-zoomwin
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <D-CR> :ZoomToggle<CR>
+
+"
+"------------------------
+" TABS
+"------------------------
+  nnoremap <Leader>1 1gt
+  nnoremap <Leader>2 2gt
+  nnoremap <Leader>3 3gt
+  nnoremap <Leader>4 4gt
+  nnoremap <Leader>5 5gt
+  nnoremap <Leader>6 6gt
+  nnoremap <Leader>7 7gt
+  nnoremap <Leader>8 8gt
+  nnoremap <Leader>9 9gt
+
+"------------------------
+" OTHER
+"------------------------
+  nnoremap <Leader>l :copenT
+  nnoremap <Leader>v 0vg_
+  nnoremap <Leader>vf 0vg_gf
+  nnoremap <silent> <Leader>cp :let @+ = escape(expand('%:p'), ' ')<CR>
+  " nnoremap <Leader>P :let @+ = escape(expand('%:p'), ' ')<CR>
+  nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+  nnoremap <Leader>lcd :lcd %:p:h<CR>:pwd<CR>
+  nnoremap <Leader>d yypVr=
+  nnoremap <Leader>dd yyPVr=
+  nnoremap <Leader>s yypVr-
+  nnoremap <Leader>ss yyPVr-Vyjp
+" From comments in VimCast about par. http://vimcasts.org/episodes/formatting-text-with-par/
+  nnoremap <Leader>p {!}par w72qrg<cr>
+  "vimdiff current vs git head (fugitive extension)
+  nnoremap <Leader>gd :Gdiff<cr>
+  nnoremap <Leader>gs :Gstatus<cr>
+  "switch back to current file and closes fugitive buffer
+  nnoremap <Leader>gD :diffoff!<cr><c-w>h:bd<cr>
+  nnoremap <Leader>cO :copen<cr><c-w>T<cr>
+  "BufExplorer
+  " nnoremap <silent> ,b :BufExplorer<CR>
+  " nnoremap <silent> ,bs :BufExplorerHorizontalSplit<CR>
+  " nnoremap <silent> ,bv :BufExplorerVerticalSplit<CR>
+  " Insert a line break/split line at cursor position while in normal mode
+  " http://stackoverflow.com/questions/624821/vim-split-line-command
+  nnoremap K <Esc>i<Enter><Esc>
+  " diffing multiple windows
+  nnoremap <Leader>wd :windo diffthis<cr>
+  nnoremap <Leader>wdo :windo diffoff<cr>
+  " nnoremap ,vt :exe "tabe <Bar> :r ! w3m -dump /Users/mark/dev/vim/vimtips.html" <Bar> norm gg<CR>
+  nnoremap <Leader>vt :tabnew /Users/mark/dev/vim/vimtips/vimtips.txt <CR>
+  " nnoremap ,vt :tabe | :r ! w3m -dump /Users/mark/dev/vim/vimtips.html
+  " Fixing up yank and put - use register y as default so that dd doesn't
+  " interfere with it
+  " this was a bit yuck as sometimes we want to yank/put from a different
+  " register. So let's remap d instead
+  " nnoremap y "yy
+  " nnoremap p "yp
+  " nnoremap P "yP
+  " nnoremap x "yx
+  " vnoremap y "yy
+  " vnoremap x "yx
+    nnoremap d  "yd
+    nnoremap dd "ydd
+    nnoremap D  "yD
+    vnoremap d  "ydd
+    vnoremap D  "yD
+
+  " From http://stackoverflow.com/questions/13380643/vim-use-as-default-register-only-for-yank-command
+  " Nice idea, but way too slow
+  " nnoremap <expr> y (v:register ==# '"' ? '"y' : '') . 'y'
+  " nnoremap <expr> yy (v:register ==# '"' ? '"y' : '') . 'yy'
+  " nnoremap <expr> Y (v:register ==# '"' ? '"y' : '') . 'Y'
+  " xnoremap <expr> y (v:register ==# '"' ? '"y' : '') . 'y'
+  " xnoremap <expr> Y (v:register ==# '"' ? '"y' : '') . 'Y'
+  " nnoremap <expr> p (v:register ==# '"' ? '"y' : '') . 'p'
+  " nnoremap <expr> pp (v:register ==# '"' ? '"y' : '') . 'pp'
+  " nnoremap <expr> P (v:register ==# '"' ? '"y' : '') . 'P'
+  " xnoremap <expr> p (v:register ==# '"' ? '"y' : '') . 'p'
+  " xnoremap <expr> P (v:register ==# '"' ? '"y' : '') . 'P'
+
+  " Force save to overwrite even if existing
+  nnoremap <D-s> :w!
+
+  " Save with _berger in suffix
+  nnoremap <Leader>sb :sav %:s?\.?_bergerm.?<CR>
+
+  nnoremap <D-P> :let @+ = expand("%")<CR>
+
+" Execute current line or current selection as Vim EX commands.
+" http://stackoverflow.com/questions/14385998/how-can-i-execute-the-current-line-as-vim-ex-commands
+  nnoremap <F2> :exe getline(".")<CR>
+  vnoremap <F2> :<C-w>exe join(getline("'<","'>"),'<Bar>')<CR>
+
+
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)
+
+"------------------------
+" Yankring
+"------------------------
+" nnoremap <silent> <F2> :YRShow<CR>
+" vnoremap <silent> <F2> :YRShow<CR>
+" inoremap <silent> <F2> :YRShow<CR>
+" let g:yankring_history_dir = '/Users/mark/tmp/vimtemp/'
+
+"------------------------
+" COMMAND-T
+"------------------------
+  " nnoremap ,t :CommandT<CR>
+  " nnoremap ,f :CommandTFlush<CR>
+  " let g:CommandTMaxHeight = 10
+  " :set wildignore+=*.png,*.gif,*.jpg,*.tgz,*.zip,*.o,*.obj,.git,target/*,dist/*,work/*,.jar,*.war,*.class,*.pdf
+
+"-----------------------------------------
+" ctrlp replace COMMAND-T and BufExplorer
+"-----------------------------------------
+  let g:ctrlp_open_new_file = 't'
+  let g:ctrlp_show_hidden = 1
+  " let g:ctrlp_map = '<Leader>t'
+  " let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
+  "                         \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+  nnoremap <Leader>t :CtrlP<CR>
+  let g:ctrlp_working_path_mode = 0
+  " :set wildignore+=.DS_Store,*.png,*.gif,*.jpg,*.tgz,*.zip,*.o,*.obj,*/.git,*/.svn/*,*/build/*,*/target/*,*/dist/*,*/out/*,*/war/*,*/work/*,.jar,*.war,*.class,*.pdf
+  " Wayne
+  "  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.gradle$\|build$\|target$\|dist$\|out$\|war\|work\|SQL/migration/old$\|SQL/DDL$\|SQL/datafixes$\|SQL/update$\|SQL/Misc$\|BusinessObjectUnitTests$\|GTPollUnitTests$\|ImporterUnitTests$\|NEM12PollUnitTests$\|NMIPollUnitTests$\|Tasks$\|TicketFiles$\|Tools$\|WayneDAL$\|WayneImporter$\|WayneObjects$\|WayneService$\|WayneUtil$\|Website$',
+  " Normal
+  "  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.gradle$\|build$\|target$\|dist$\|out$\|war\|work',
+  :set wildignore+=.DS_Store,*.png,*.gif,*.jpg,*.tgz,*.zip,*.o,*.obj,
+  let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\C\.vagrant$\|\.git$\|\.hg$\|\.svn$\|\.gradle$\|node_modules$\|build$\|target$\|dist$\|out$\|work\|SQL/migration/old$\|SQL/DDL$\|SQL/datafixes$\|SQL/update$\|SQL/Misc$\|BusinessObjectUnitTests$\|GTPollUnitTests$\|ImporterUnitTests$\|NEM12PollUnitTests$\|NMIPollUnitTests$\|Tasks$\|TicketFiles$\|Tools$\|WayneDAL$\|WayneImporter$\|WayneObjects$\|WayneService$\|WayneUtil$\|Website$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$\|\.pdf$\|\.war$\|\.zip$\|\.tgz$',
+    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+    \ }
+
+  " netrw-gx Use gx to open links in iCab - help gx
+  let g:netrw_browsex_viewer= "open -a /Applications/Firefox.app"
+  " let g:netrw_browsex_viewer= "open -a /Applications/iCab.app"
+
+  let g:netrw_list_hide= '.*\.swp$,\.vagrant,\.git,\.svn'
+
+"------------------------
+" STATUS LINE
+"------------------------
+" Status Line managed by airline
+"" from http://stackoverflow.com/questions/9065941/how-can-i-change-vim-status-line-colour
+"function! InsertStatuslineColor(mode)
+"  if a:mode == 'i'
+"    hi statusline guibg=#e6401d ctermfg=6 guifg=White ctermbg=0
+"  elseif a:mode == 'r'
+"    hi statusline guibg=Purple ctermfg=5 guifg=Black ctermbg=0
+"  elseif a:mode == 'no'
+"    hi statusline guibg=Green ctermfg=5 guifg=Black ctermbg=0
+"  else
+"    hi statusline guibg=DarkRed ctermfg=1 guifg=Black ctermbg=0
+"  endif
+"endfunction
+"
+"au InsertEnter * call InsertStatuslineColor(v:insertmode)
+"au InsertLeave * hi statusline guibg=#666666 ctermfg=8 guifg=White ctermbg=15
+"
+"" default the statusline to green when entering Vim
+"hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
+"
+"" Formats the statusline
+"set statusline=%f                               " file name
+"set statusline+=[%{mode()}]                         " mode
+"set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+"set statusline+=%{&ff}] "file format
+"set statusline+=%y      "filetype
+"set statusline+=%h      "help file flag
+"set statusline+=%m      "modified flag
+"set statusline+=%r      "read only flag
+"
+"" " Puts in the current git status
+""     if count(g:pathogen_disabled, 'Fugitive') < 1
+"         set statusline+=%{fugitive#statusline()}
+""     endif
+"
+"" " Puts in syntastic warnings
+""     if count(g:pathogen_disabled, 'Syntastic') < 1
+""         set statusline+=%#warningmsg#
+""         set statusline+=%{SyntasticStatuslineFlag()}
+""         set statusline+=%*
+""     endif
+"
+"set statusline+=\ %=                        " align left
+"set statusline+=Line:%l/%L[%p%%]            " line X of Y [percent of file]
+"set statusline+=\ Col:%c                    " current column
+"set statusline+=\ Buf:%n                    " Buffer number
+"set statusline+=\ [%b][0x%B]\               " ASCII and byte code under cursor
+"
+" Ensure that end of line markers are shown as gray
+" See http://stackoverflow.com/questions/903934/unable-to-make-gray-eol-character-by-vimrc
+" Needs to be in .gvimrc for macvim
+hi NonText ctermfg=7 guifg=gray
+hi SpecialKey ctermfg=7 guifg=gray
+
+" http://vim.wikia.com/wiki/Quoted_Printable_to_Plain
+nnoremap <Leader>qp :%s/=\(\x\x\<BAR>\n\)/\=submatch(1)=='\n'?'':nr2char('0x'.submatch(1))/ge<CR>
+vnoremap <Leader>qp :s/=\(\x\x\<BAR>\n\)/\=submatch(1)=='\n'?'':nr2char('0x'.submatch(1))/ge<CR>
+
+" Clear error highlighting in Markdown
+" resetting syn seems to work
+" hi markdownError NONE
+" syn match markdownError "\w\@<=_\w\@="
+syn match markdownError "\w\@<=\w\@="
+
+" Removing the "WARNING: the file has changedsince reading it"
+" http://vim.1045645.n5.nabble.com/Eliminating-quot-WARNING-The-file-has-been-changed-since-reading-it-quot-td4897127.html
+function! ProcessFileChangedShell()
+  echo v:fcs_reason
+  if v:fcs_reason == 'mode' || v:fcs_reason == 'time'
+    let v:fcs_choice = ''
+  else
+    let v:fcs_choice = 'ask'
+  endif
+endfunction
+
+augroup mhb_filechanged
+  autocmd!
+  "autocmd FileChangedShell <buffer> call ProcessFileChangedShell()
+  autocmd FileChangedShell * call ProcessFileChangedShell()
+augroup END
+
+" From Practical Vim - Page 235
+" Vim doesn't provide quickfixdo. So copy files from quickfix list and put
+" into args list. Can then run argdo
+" Better is just using :args `some command returing list of filenames`.
+" See http://stackoverflow.com/a/14300487
+command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+function! QuickfixFilenames()
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
+
+" redirect output of find to scratch directory
+command! -nargs=? F let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a
+command! -nargs=? FC let @a='' | execute 'redir @a' | execute 'silent <args>' | execute 'redir END' | new | setlocal bt=nofile | put! a
+
+" fix up syntax highlighting.
+nnoremap <silent> ss :syn sync fromstart<CR>
+
+" https://github.com/reedes/vim-textobj-quote
+" set up smart quote changes
+augroup textobj_quote
+  autocmd!
+  autocmd FileType markdown call textobj#quote#init()
+  autocmd FileType textile call textobj#quote#init()
+  autocmd FileType text call textobj#quote#init({'educate': 0})
+augroup END
+let g:textobj#quote#doubleMotion = 'Q'
+let g:textobj#quote#singleMotion = 'q'
+map <silent> <Leader>qc <Plug>ReplaceWithCurly
+map <silent> <Leader>qs <Plug>ReplaceWithStraight
+" Disable the default Educate commands that conflict with Explore
+command! -nargs=0 SmartQuote       call textobj#quote#educate#mapKeys(1)
+command! -nargs=0 NoSmartQuote     call textobj#quote#educate#mapKeys(0)
+command! -nargs=0 ToggleSmartQuote call textobj#quote#educate#toggleMappings()
+" Doesn’t work here. Put in .gvimrc instead.
+" delcommand Educate
+" delcommand NoEducate
+" delcommand ToggleEducate
+
+
+" Preload the man plugin.
+runtime! ftplugin/man.vim
+
+" Ag options
+let g:aghighlight=1
+
+" Set timeout to 300 - default is 1000
+" set tm=300
+" set guifont=Monaco:h13
+" set guifont=Consolas:h13
+set guifont=Triplicate\ T4c:h14
+"
+" http://vim.1045645.n5.nabble.com/how-to-disable-the-highlighting-of-parenthesis-matching-td1172446.html
+" http://vimrc-dissection.blogspot.com.au/2006/09/vim-7-re-turn-off-parenparenthesiswhat.html
+" set NoMatchParen
+let loaded_matchparen = 1
+
+" Get bash aliases to work from within Vim
+" http://stackoverflow.com/questions/4642822/commands-executed-from-vim-are-not-recognizing-bash-command-aliases
+let $BASH_ENV = "~/.aliases"
+
+let g:netrw_cursor=0
+
+" Gist settings
+let g:gist_post_private = 1
+" Only write with w!
+let g:gist_update_on_write = 2
+
+" Disable ELP command which seems to be included once I started doing build
+" and interfres with E
+" http://stackoverflow.com/questions/31695455/vim-how-do-i-disable-the-default-logipat-plugin
+let g:loaded_logipat = 1
+
+" Quoted printable characters found in mbox dump files, such as =3D
+" https://raw.githubusercontent.com/zannalov/skel/master/.vim/plugin/quoted-printable-characters.vim
+nnoremap <Leader>Q :%s/=\n//g<CR>:%s/=\(\x\x\<BAR>\n\)/\=submatch(1)=='\n'?'':nr2char('0x'.submatch(1))/ge<CR>
+vnoremap <Leader>Q :s/=\n//g<CR>:'<,'>s/=\(\x\x\<BAR>\n\)/\=submatch(1)=='\n'?'':nr2char('0x'.submatch(1))/ge<CR>
+
+:map Y y$
+
+" http://vimhelp.appspot.com/insert.txt.html#ins-completion
+imap <F7> <C-X><C-P>
+
+" From Practical Vim – using selection in visual mode to find via * and #
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+" From Practical Vim – Number formats Page 22
+set nrformats=
+
+" Disable autodenting
+" From http://vim.wikia.com/wiki/How_to_stop_auto_indenting
+:nnoremap <F8> :setl noai nocin nosi inde=<CR>
+
+" TODO
+" damianconway vim – mathvim and dragvisual
+" https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/plugin/vmath.vim
+" vundlevim

@@ -1,0 +1,452 @@
+# Snippets done using Ultisnips
+#
+
+# ----------------
+#  PLAYING AROUND
+# ----------------
+
+snippet closewr
+  Implemented by change xxxx on 1 June 2015.
+endsnippet
+
+snippet wow
+${1:Text}`!p snip.rv = (75-2*len(t[1]))*' '+t[1].upper()`
+endsnippet
+
+snippet t1 "visually select some text, press tab, then t1 and tab"
+${VISUAL: /.+/\U$0\E/}
+endsnippet
+
+snippet t2 "boxing some thing"
+-- `!p snip.rv = (len(t[1])+2)*'-'`
+--  ${0/.+/\U$0\E/}
+-- `!p snip.rv = (len(t[1])+2)*'-'`
+endsnippet
+
+snippet "zz.*" "Example" r
+-- `!p snip.rv = (len(t[1])+2)*'-'`
+`!p snip.rv = match.group(0).upper()`
+-- `!p snip.rv = (len(t[1])+2)*'-'`
+endsnippet
+
+# From https://answers.dogfood.paddev.net/ultisnips/+question/193226 
+snippet "XKC-\d+" "Example" r
+`!p snip.rv = match.group(0).replace("-","hhh")`
+endsnippet
+
+snippet title2
+  ${1:Some Text}${1/.+/\U$0\E/}\n${1/.+/\L$0\E/}
+endsnippet
+
+snippet title3
+$1 ${2:${1/.+/(?0: $0)/}}
+endsnippet
+
+snippet title "Title transformation"
+${${1:a text}
+${1/(.*)/\U$0\E/g}
+endsnippet
+
+# ------
+#  Text
+# ------
+snippet box "boxing some thing"
+-- `!p snip.rv = (len(t[1])+2)*'-'`
+--  ${1:Text}
+-- `!p snip.rv = (len(t[1])+2)*'-'`
+endsnippet
+
+snippet blog
+title=
+date=`date +%Y-%m-%d`
+type=post
+tags=blog
+id=
+status=published
+name=
+~~~~~~
+endsnippet
+
+snippet tex "Formatting template for Textile"
+<notextile>{{{1
+<style>
+  * {margin: 0; padding: 0}
+  body  {font-family: Equity Text A; font-size: 62.5%; width: 80%; margin:auto;}
+  h2 {font-family: 'Concourse T3'; font-size: 2.1rem; letter-spacing: 2.0; margin-top: 1em; margin-bottom: 0.5em;}
+  p {font-size: 1.5rem; line-height: 1.35; margin-bottom: 0.6em;}
+  ul li {font-size: 1.5rem; line-height: 1.35; margin-bottom: 0.6em; margin-left: 1.5rem; padding-left: 0rem;}
+  pre {font-family: Triplicate T4p; font-size:0.95rem; line-height: 1.55;}
+</style>
+</notextile>
+<pre>
+
+</pre>
+<notextile>
+<!--
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefgh
+vim:ft=textile:tw=65:fdm=marker
+-->
+</notextile>
+1}}}
+
+endsnippet
+
+snippet monacotext "MHB Textile formatting Monaco."
+<pre style="font-family: Monaco;font-size:0.8em;">
+endsnippet
+
+
+snippet triplicatetext "MHB Textile formatting Triplicate."
+<pre style="font-family: 'Triplicate T4p';font-size: 1.1em;">
+endsnippet
+
+
+snippet _update "MHB current date time e.g. last updated"
+`date +"%a %e %B %Y, %H:%M:%S"|sed s'/  / /'`
+endsnippet 
+
+
+snippet ua "MHB union all"
+union all
+endsnippet 
+
+
+snippet _99 "MHB data admin end date"
+'9999-12-31'
+endsnippet 
+
+snippet _99s "MHB data admin end timestamp"
+'9999-12-31 00:00:00'
+endsnippet 
+
+snippet sout "MHB groovy println"
+System.out.println "
+endsnippet
+
+
+snippet donemsg "MHB DONE messages for Data Admin"
+================
+DEFAULT MESSAGES
+================
+Ran redconfixglobalmtrd, imported, redxuploaded and skipped.
+Doctored file to remove offending transaction, imported, generated C4 request, redxuploaded and skipped.
+Data fix and reloaded file. See update_xxx 
+
+-- Multinet Gunk
+For each of the files, in above
+* create directory matching basename filename
+* download file
+* find all nmis in the file
+* for each nmi,
+** create a directory for the nmi
+   grep 'NMI ' nmidmgtw_* | cut -d '>' -f2 | cut -d '<' -f 1 | while read f;do echo mkdir $f;done;
+** find all files received in the last month related to nmi
+   echo groovy $REDX/bin/FindForFilter.groovy -s $(basename $(pwd)) -startUploadDate '2014-01-01T00:00:00' -d 'IN' -l -r 'NMIStandingDataResponse'
+** Examine the files to work out action
+
+Will need to update – Doctor and save as
+No subsequent file or updates, needs to be processed. Doctor file as
+Only differences are CustomerClassificationCode (new), CustomerThresholdCode (new), NextScheduledSpecialRead, NextScheduledReadDate and ReadDate in subsequent file
+Only differences are CustomerClassificationCode (new), NextScheduledSpecialRead and ReadDate in subsequent file
+Only differences are CustomerClassificationCode (new), NextScheduledSpecialRead, NextScheduledReadDate and ReadDate in subsequent file
+Only differences are CustomerClassificationCode (new), NextScheduledSpecialRead, ReadDate in subsequent file
+Only differences are MeterSerialNumber, CustomerClassificationCode (new), NextScheduledSpecialRead, NextScheduledReadDate and ReadDate in subsequent file
+Only differences are NextScheduledReadDate and ReadDate in subsequent file
+Only differences are NextScheduledSpecialRead to previous file
+Only differences are NextScheduledSpecialRead, NextScheduledReadDate and ReadDate in subsequent file
+Only differences are NextScheduledSpecialRead, NextScheduledReadDate and ReadDate to previous file
+Only differences are NextScheduledSpecialRead, ReadDate in previous file
+Only differences are NextScheduledSpecialRead, ReadDate in subsequent file
+Only differences are NextScheduledSpecialRead, Preferred, ReadDate in previous file
+
+ File finally arrived. Had to download from MIBB, particular directory
+    int254_v4_metering_data_monthly_79~20140709112412.zip
+  unzipped
+  redxuploaded
+    groovy -DfileType=INT254 /Users/mark/IdeaProjects/red/redx_git/bin/Upload.groovy int254_v4_metering_data_monthly_79~20140709112412.csv
+  Kicked off redcon redx fetch
+  Redcon Gas Hedge Export automatically picked it up.
+  Let Glenn know and thank AEMO.
+
+
+endsnippet
+
+
+snippet done "MHB DONE for Data Admin"
+==========
+   DONE
+==========
+endsnippet
+
+
+snippet copysql "MHB Red copyright for SQL files"
+-- Copyright `date +%Y` Red Energy Limited
+-- Mark Berger
+-- `date +%Y-%m-%d`
+
+endsnippet
+
+
+snippet copyg  "MHB Red copyright for groovy files"
+// Copyright `date +%Y` Red Energy Limited
+// Mark Berger
+// `date +%Y-%m-%d`
+endsnippet
+
+
+snippet isoT "MHB ISO Date Time"
+`date +%Y-%m-%d\ %H:%M:%S`
+endsnippet
+
+
+snippet isoD "MHB ISO Date"
+`date +%Y-%m-%d`
+endsnippet
+
+snippet isoday "MHB ISO Date with day"
+`date +%a\ %Y-%m-%d`
+endsnippet
+
+
+snippet #!g  "MHB shebang for groovy"
+#!/usr/bin/env groovy
+
+endsnippet
+
+
+snippet #!r  "MHB shebang for ruby"
+#!/usr/bin/env ruby
+
+endsnippet
+
+
+snippet #!b  "MHB shebang for bash"
+#!/usr/bin/env bash
+
+endsnippet
+
+
+snippet datafix "MHB template for doing Redcon Standing Data Fix"
+-- Copyright `date +%Y` Red Energy Limited
+-- Mark Berger
+-- `date +%Y-%m-%d`
+
+-- ===========
+--  MESSAGES
+-- ===========
+
+-- ==========
+--  ORIGINAL
+-- ==========
+
+-- =============
+--  DIAGNOSTICS
+-- =============
+
+-- =====
+--  FIX
+-- =====
+
+-- =====
+--  C4
+-- =====
+
+endsnippet
+
+
+snippet mirnread "MHB template for doing MIRN read data fix"
+-- Copyright 2012 Red Energy Limited
+-- Mark Berger
+-- `date +%Y-%m-%d`
+
+-- ===========
+--  MESSAGES
+-- ===========
+
+-- ==========
+--  ORIGINAL
+-- ==========
+
+-- =============
+--  DIAGNOSTICS
+-- =============
+
+-- =====
+--  FIX
+-- =====
+
+ UPDATE market_mirn_read_version
+  SET change_action = 'D',
+      change_user = 'bergerm',
+      change_timestamp = SYSDATE
+
+
+-- ===============
+--  CHECK QUERIES
+-- ===============
+
+select * from CHK_MKT_MIRN_READ_VER_REC_GAPS where mirn in (xxx)
+/
+select * from CHK_MKT_MIRN_READ_VER_DATES where mirn in (xxx)
+/
+select * from CHK_MKT_MIRN_READ_VER_CUR_GAPS where mirn in (xxx)
+/
+select * from CHK_MKT_MIRN_READ_VER_OVERLAPS where mirn in (xxx)
+/
+endsnippet
+
+
+snippet chkqueries "MHB template for the check queries"
+-- =================
+-- = CHECK QUERIES =
+-- =================
+
+SELECT * FROM chk_mkt_mirn_role_ver_act_gaps WHERE mirn = 'xxx'
+/
+SELECT * FROM chk_mkt_mirn_role_ver_overlaps WHERE mirn = 'xxx'
+/
+SELECT * FROM chk_mkt_mirn_role_ver_rec_gaps WHERE mirn = 'xxx'
+/
+
+SELECT * FROM chk_nmi_ver_actual_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_ver_current_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_ver_dates WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_ver_overlaps  WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_ver_record_gaps  WHERE nmi = 'xxx'
+/
+
+SELECT * FROM chk_nmi_role_ver_actual_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_role_ver_dates WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_role_ver_overlaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_role_ver_record_gaps WHERE nmi = 'xxx'
+/
+
+SELECT * FROM chk_meter_ver_actual_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_meter_ver_current_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_meter_ver_dates WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_meter_ver_overlaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_meter_ver_record_gaps WHERE nmi = 'xxx'
+/
+
+SELECT * FROM chk_register_ver_actual_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_register_ver_current_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_register_ver_dates WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_register_ver_overlaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_register_ver_record_gaps WHERE nmi = 'xxx'
+/
+
+SELECT * FROM chk_data_id_ver_actual_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_data_id_ver_current_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_data_id_ver_dates WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_data_id_ver_overlaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_data_id_ver_record_gaps WHERE nmi = 'xxx'
+/
+endsnippet
+
+
+snippet mirnsnapshot "MHB skeleton to help resolve fix CHK_GAS_FRO_IN_GT_AND_SNAPSHOT"
+
+-- ==========
+--  ORIGINAL
+-- ==========
+
+-- select * from market_mirn_role_version where mirn = 'xxx'
+
+
+-- =========
+--  WORKINGS
+-- =========
+
+-- select install, icp_ident from gt_install where icp_ident like 'xxx%';
+
+-- select * from gt_consumer where cinstall = xxx;
+
+-- select CONSUMERNO, CDENTRY, CDFINAL from gt_consumer where cinstall = xxx;
+
+
+-- =====
+--  FIX
+-- =====
+
+INSERT INTO market_mirn_role (mirn, role, seq) VALUES ('xxx', 'FRMP', 0);
+
+INSERT INTO market_mirn_role_version (mirn, role, record_start, record_end, actual_start, actual_end, participant, seq)
+VALUES ('xxx', 'FRMP', TIMESTAMP '2014-06-26 09:00:00', DATE '9999-12-31', DATE '2014-05-13', DATE '9999-12-31', 'REDENERGY', 0);
+
+
+-- =================
+-- = CHECK QUERIES =
+-- =================
+
+SELECT * FROM market_mirn_role_version WHERE mirn = 'xxx';
+SELECT * FROM redconuser.chk_gas_fro_in_gt_and_snapshot WHERE mirn = 'xxx';
+
+
+endsnippet
+
+
+snippet mirnbill "MHB skeleton to help resolve fix CHK_GAS_INVOICED_BUT_NOT_FRO"
+
+==========
+xxx
+==========
+
+select * from GT_NMITRANSFER where nmit_icpno like 'xxx%' and NMIT_STATUS = 'COM' order by 1;
+
+select * from GT_install where ICP_IDENT = 'nmit_icp_ident_from_above';
+
+select * from gt_consumer where CINSTALL = INSTALL_from_above;
+
+CDENTRY -> xxx
+CDFINAL -> xxx
+
+select distinct mirn, FRO_FROM_DATE  from MIBB_MIRN_FRO_SNAPSHOT where MIRN = 'xxx'
+
+select * From market_mirn_role_version where mirn = 'xxx' and record_end = date '9999-12-31'
+
+Looks like a bungled switch. Insert record indicating Red from xxx to xxx
+Data fix xxx
+
+endsnippet
+
+
+snippet migratesql "MHB Migrate SQL skeleton"
+-- Copyright `date +%Y` Red Energy Limited
+-- Mark Berger
+-- `date +%Y-%m-%d`
+
+SPOOL update_nn.nn.nn_xxxx.log;
+WHENEVER SQLERROR EXIT SQL.SQLCODE ROLLBACK;
+SET DEFINE OFF;
+SET FEEDBACK ON;
+SET ECHO ON;
+
+
+-- =====
+--  FIX
+-- =====
+
+
+-- COMMIT WORK;
+
+SPOOL OFF;
+endsnippet
