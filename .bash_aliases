@@ -81,6 +81,9 @@ alias hosts="grep -v '^#' /etc/hosts"
 alias sha1="openssl sha1"
 alias sha256="openssl sha256"
 
+alias tma='tmux attach -t'
+alias tmls='tmux ls'
+
 alias ~alias='vi ~/.bash_aliases && . ~/.bash_aliases'
 
 export GIT_AUTHOR_EMAIL=mark.berger@moothall.nz
