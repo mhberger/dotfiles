@@ -29,7 +29,7 @@ snippet "zz.*" "Example" r
 -- `!p snip.rv = (len(t[1])+2)*'-'`
 endsnippet
 
-# From https://answers.dogfood.paddev.net/ultisnips/+question/193226 
+# From https://answers.dogfood.paddev.net/ultisnips/+question/193226
 snippet "XKC-\d+" "Example" r
 `!p snip.rv = match.group(0).replace("-","hhh")`
 endsnippet
@@ -103,24 +103,49 @@ endsnippet
 
 snippet _update "MHB current date time e.g. last updated"
 `date +"%a %e %B %Y, %H:%M:%S"|sed s'/  / /'`
-endsnippet 
+endsnippet
 
 
 snippet ua "MHB union all"
 union all
-endsnippet 
+endsnippet
 
 
 snippet _99 "MHB data admin end date"
 '9999-12-31'
-endsnippet 
+endsnippet
 
 snippet _99s "MHB data admin end timestamp"
 '9999-12-31 00:00:00'
-endsnippet 
+endsnippet
 
 snippet sout "MHB groovy println"
 System.out.println "
+endsnippet
+
+
+snippet badmeterdata "MHB data admin – format of email for meter data folk"
+
+
+Hi Tanya
+
+Red has received invalid NEM12 MTRD transactions from UEDMDP which have
+missing serial numbers in the some of the 200 records.
+
+File Name:      mtrdm_uedmdp_20160505030005823370.xml
+transactionID:  UEDT26043852
+Nmi:            6407714123
+
+Data for the unaffected NMIs has been loaded using a manual workaround.
+
+Can you please contact the MDP, inform them of the issue and enquire what
+action they are going to take for the affected NMIs i.e. when are they
+going to correct the problem and when are they going to resend data
+for the affected NMIs.
+
+Thanks
+Mark
+
 endsnippet
 
 
@@ -130,7 +155,7 @@ DEFAULT MESSAGES
 ================
 Ran redconfixglobalmtrd, imported, redxuploaded and skipped.
 Doctored file to remove offending transaction, imported, generated C4 request, redxuploaded and skipped.
-Data fix and reloaded file. See update_xxx 
+Data fix and reloaded file. See update_xxx
 
 -- Multinet Gunk
 For each of the files, in above
@@ -223,6 +248,31 @@ endsnippet
 snippet #!b  "MHB shebang for bash"
 #!/usr/bin/env bash
 
+endsnippet
+
+
+snippet deletenmi "MHB template deleting nmi rows"
+DELETE FROM nmi_version WHERE nmi = '$1';
+endsnippet
+
+
+snippet deletenmirole "MHB template deleting nmi role rows"
+DELETE FROM nmi_role_version WHERE nmi = '$1' AND role = '$2';
+endsnippet
+
+
+snippet deletemeter "MHB template deleting meter rows"
+DELETE FROM meter_version WHERE nmi = '$1' AND serial = '$2';
+endsnippet
+
+
+snippet deleteregister "MHB template deleting register rows"
+DELETE FROM register_version WHERE nmi = '$1' AND serial = '$2' AND code = '$3';
+endsnippet
+
+
+snippet deletedataid "MHB template deleting dataid rows"
+DELETE FROM data_id_version WHERE nmi = '$1' AND suffix = '$2';
 endsnippet
 
 
