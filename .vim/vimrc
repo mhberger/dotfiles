@@ -8,6 +8,9 @@ call vundle#begin()
 " required!
 Plugin 'VundleVim/Vundle.vim'
 
+let g:loaded_python3_provider = 0
+let g:python_host_prog = '/opt/local/bin/python'
+
 let mapleader = "\<Space>"
 " let mapleader = ","
 
@@ -51,6 +54,7 @@ Plugin 'thinca/vim-quickrun'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'coderifous/textobj-word-column.vim'
 Plugin 'rking/ag.vim'
+Plugin 'lifepillar/vim-solarized8'
 
 " vim-scripts
 Plugin 'matchit.zip'
@@ -60,12 +64,14 @@ Plugin 'Textile-for-VIM'
 "Plugin 'ack.vim'
 Plugin 'loremipsum'
 Plugin 'L9'
-Plugin 'Solarized'
+" Plugin 'Solarized'
 " Plugin 'unimpaired.vim'
 Plugin 'SQLComplete.vim'
 " Plugin 'EnhCommentify.vim'
 " Plugin 'ZoomWin'
-Plugin 'UltiSnips'
+if !has('nvim')
+  Plugin 'UltiSnips'
+endif
 Plugin 'EasyGrep'
 Plugin 'Tabular'
 " Plugin 'YankRing.vim'
@@ -144,7 +150,8 @@ augroup mhb_filetypes
 augroup END
 
 " Set crypt method
-set cm=blowfish
+" set cm=blowfish
+
 set directory=~/tmp/vimtemp/
 set tildeop
 
@@ -643,6 +650,26 @@ set nrformats=
 " Disable autodenting
 " From http://vim.wikia.com/wiki/How_to_stop_auto_indenting
 :nnoremap <F8> :setl noai nocin nosi inde=<CR>
+
+" Highlighting – Solarized8 Theme
+" https://github.com/lifepillar/vim-solarized8
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+
+nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
+    \ ? substitute(g:colors_name, 'dark', 'light', '')
+    \ : substitute(g:colors_name, 'light', 'dark', '')
+    \ )<cr>
+
+fun! Solarized8Contrast(delta)
+  let l:schemes = map(["_low", "_flat", "", "_high"], '"solarized8_".(&background).v:val')
+  exe "colors" l:schemes[((a:delta+index(l:schemes, g:colors_name)) % 4 + 4) % 4]
+endf
+
+nmap <leader><F12> :<c-u>call Solarized8Contrast(-v:count1)<cr>
+nmap <leader><S-F12> :<c-u>call Solarized8Contrast(+v:count1)<cr>
+
+colorscheme solarized8_light_high
 
 " TODO
 " damianconway vim – mathvim and dragvisual
