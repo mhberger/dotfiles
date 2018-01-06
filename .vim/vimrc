@@ -55,6 +55,7 @@ Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'coderifous/textobj-word-column.vim'
 Plugin 'rking/ag.vim'
 Plugin 'lifepillar/vim-solarized8'
+" Plugin 'Valloric/YouCompleteMe'
 
 " vim-scripts
 Plugin 'matchit.zip'
@@ -458,7 +459,8 @@ vmap V <Plug>(expand_region_shrink)
     \ }
 
   " netrw-gx Use gx to open links in iCab - help gx
-  let g:netrw_browsex_viewer= "open -a /Applications/Firefox.app"
+  let g:netrw_browsex_viewer= "open -a /Applications/Brave.app"
+  " let g:netrw_browsex_viewer= "open -a /Applications/Firefox.app"
   " let g:netrw_browsex_viewer= "open -a /Applications/iCab.app"
 
   let g:netrw_list_hide= '.*\.swp$,\.vagrant,\.git,\.svn'
@@ -517,8 +519,12 @@ vmap V <Plug>(expand_region_shrink)
 " Ensure that end of line markers are shown as gray
 " See http://stackoverflow.com/questions/903934/unable-to-make-gray-eol-character-by-vimrc
 " Needs to be in .gvimrc for macvim
+" Needs to be somewhere else for vim and neovim now. Something to do with
+" color schemes
+" http://stackoverflow.com/questions/21112972/macvim-gets-all-settings-from-vimrc-but-not-the-colors-and-i-have-to-source
 hi NonText ctermfg=7 guifg=gray
 hi SpecialKey ctermfg=7 guifg=gray
+colorscheme mhb_colors
 
 " http://vim.wikia.com/wiki/Quoted_Printable_to_Plain
 nnoremap <Leader>qp :%s/=\(\x\x\<BAR>\n\)/\=submatch(1)=='\n'?'':nr2char('0x'.submatch(1))/ge<CR>
@@ -572,6 +578,7 @@ nnoremap <silent> ss :syn sync fromstart<CR>
 " set up smart quote changes
 augroup textobj_quote
   autocmd!
+  autocmd FileType asciidoc call textobj#quote#init()
   autocmd FileType markdown call textobj#quote#init()
   autocmd FileType textile call textobj#quote#init()
   autocmd FileType text call textobj#quote#init({'educate': 0})
@@ -666,10 +673,30 @@ fun! Solarized8Contrast(delta)
   exe "colors" l:schemes[((a:delta+index(l:schemes, g:colors_name)) % 4 + 4) % 4]
 endf
 
+nmap <leader>jj :<c-u>call Solarized8Contrast(-v:count1)<cr>
+nmap <leader>JJ :<c-u>call Solarized8Contrast(+v:count1)<cr>
 nmap <leader><F12> :<c-u>call Solarized8Contrast(-v:count1)<cr>
 nmap <leader><S-F12> :<c-u>call Solarized8Contrast(+v:count1)<cr>
 
+" Moved to mhb_colors
 colorscheme solarized8_light_high
+
+" Useful when using :sil Nread http://www.google.com/
+let g:netrw_http_cmd = 'curl -s -o'
+
+" TODO Interesting, need a clean way getting to buffer quickly.
+" " Airline to show buffers.
+" " http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
+" " Enable the list of buffers
+" let g:airline#extensions#tabline#enabled = 1
+"
+" " Show just the filename
+" let g:airline#extensions#tabline#fnamemod = ':t'
+"
+" Use swipe to move between tabs
+" Doesn't seem to work
+" nmap <SwipeLeft> gT
+" nmap <SwipeRight> gt
 
 " TODO
 " damianconway vim – mathvim and dragvisual

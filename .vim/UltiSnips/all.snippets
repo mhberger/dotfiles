@@ -123,6 +123,14 @@ snippet sout "MHB groovy println"
 System.out.println "
 endsnippet
 
+snippet cl "MHB js console.log"
+console.log($1);
+endsnippet
+
+snippet clp "MHB js console.log with parameter"
+console.log(\`${1:text} \${${2:var}}\`);
+endsnippet
+
 
 snippet badmeterdata "MHB data admin – format of email for meter data folk"
 
@@ -149,10 +157,22 @@ Mark
 endsnippet
 
 
+snippet doneglobalm "MHB DONE messages for Data Admin – GlobalM"
+  6305010126 missing serial number
+  Removed offending 200,300 records
+  Redxuploaded 
+	Skipped
+endsnippet
+
+
 snippet donemsg "MHB DONE messages for Data Admin"
 ================
 DEFAULT MESSAGES
 ================
+  6305010126 missing serial number
+  Removed offending 200,300 records
+  redxuploaded mtrdlglobalm_
+
 Ran redconfixglobalmtrd, imported, redxuploaded and skipped.
 Doctored file to remove offending transaction, imported, generated C4 request, redxuploaded and skipped.
 Data fix and reloaded file. See update_xxx
@@ -197,6 +217,27 @@ Only differences are NextScheduledSpecialRead, Preferred, ReadDate in previous f
 endsnippet
 
 
+snippet dataadmin "MHB Data Admin"
+==============
+  UNRESOLVED
+==============
+
+
+==================
+   CHECK QUERIES
+==================
+
+
+=======
+  WIP
+=======
+
+==========
+   DONE
+==========
+
+endsnippet
+
 snippet done "MHB DONE for Data Admin"
 ==========
    DONE
@@ -219,6 +260,11 @@ snippet copyg  "MHB Red copyright for groovy files"
 endsnippet
 
 
+snippet isoF"MHB ISO Full Date"
+`date +%A\ %e\ %B\ %G| tr -s ' '`
+endsnippet
+
+
 snippet isoT "MHB ISO Date Time"
 `date +%Y-%m-%d\ %H:%M:%S`
 endsnippet
@@ -232,6 +278,10 @@ snippet isoday "MHB ISO Date with day"
 `date +%a\ %Y-%m-%d`
 endsnippet
 
+snippet #!n  "MHB shebang for node"
+#!/usr/bin/env node
+
+endsnippet
 
 snippet #!g  "MHB shebang for groovy"
 #!/usr/bin/env groovy
@@ -253,6 +303,20 @@ endsnippet
 
 snippet deletenmi "MHB template deleting nmi rows"
 DELETE FROM nmi_version WHERE nmi = '$1';
+endsnippet
+
+
+snippet gituserm "MHB mhb git user"
+[user]
+	name = Mark Berger
+	email = m@mhb.nz
+endsnippet
+
+
+snippet gituserred "MHB redenergy git user"
+[user]
+	name = Mark Berger
+	email = mark.berger@redenergy.com.au
 endsnippet
 
 
@@ -342,6 +406,76 @@ select * from CHK_MKT_MIRN_READ_VER_DATES where mirn in (xxx)
 select * from CHK_MKT_MIRN_READ_VER_CUR_GAPS where mirn in (xxx)
 /
 select * from CHK_MKT_MIRN_READ_VER_OVERLAPS where mirn in (xxx)
+/
+endsnippet
+
+
+snippet chkquerymeter "MHB template for the check queriies – meter"
+-- =================
+-- = CHECK QUERIES =
+-- =================
+
+SELECT * FROM chk_meter_ver_actual_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_meter_ver_current_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_meter_ver_dates WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_meter_ver_overlaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_meter_ver_record_gaps WHERE nmi = 'xxx'
+/
+endsnippet
+
+
+snippet chkquerynmi "MHB template for the check queries – nmi"
+-- =================
+-- = CHECK QUERIES =
+-- =================
+
+SELECT * FROM chk_nmi_ver_actual_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_ver_current_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_ver_dates WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_ver_overlaps  WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_ver_record_gaps  WHERE nmi = 'xxx'
+/
+endsnippet
+
+
+snippet chkquerydataid "MHB template for the check queries – dataid"
+-- =================
+-- = CHECK QUERIES =
+-- =================
+
+SELECT * FROM chk_data_id_ver_actual_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_data_id_ver_current_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_data_id_ver_dates WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_data_id_ver_overlaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_data_id_ver_record_gaps WHERE nmi = 'xxx'
+/
+endsnippet
+
+
+snippet chkquerynmirole "MHB template for the check queries – nmi role"
+-- =================
+-- = CHECK QUERIES =
+-- =================
+
+SELECT * FROM chk_nmi_role_ver_actual_gaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_role_ver_dates WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_role_ver_overlaps WHERE nmi = 'xxx'
+/
+SELECT * FROM chk_nmi_role_ver_record_gaps WHERE nmi = 'xxx'
 /
 endsnippet
 
@@ -499,4 +633,64 @@ SET ECHO ON;
 -- COMMIT WORK;
 
 SPOOL OFF;
+endsnippet
+
+
+snippet tacr "MHB TeamAssist Change Request"
+
+For Change Request
+==================
+
+
+Submission
+----------
+
+This is to allow customers to provide concession information viw
+red website.
+
+This minor release provides some fixes.
+
+
+Planning
+--------
+
+
+### Impact
+
+While the change is happening, xxxx will be
+unavailable. Anyone trying to access this will see a systems unavailable
+page i.e. https://www.redenergy.com.au/systems-unavailable.html
+
+
+### Roll Out Plan
+
+From Working Info Above
+
+
+### Back Out Plan
+
+Fix on Fail
+
+
+### Check List
+
+Manual Post Verification Test.
+
+Testing and checking www using link below.
+
+    https://www.redenergy.com.au/concessionrequest
+
+
+Testing and checking done on QA using link below.
+
+    https://devqa.redenergy.com.au/concessionrequest
+
+
+### Downtime
+
+While the change is happening, The direct debit the website will be
+unavailable. Anyone trying to access this will see a systems unavailable
+page i.e. https://www.redenergy.com.au/systems-unavailable.html
+
+
 endsnippet
