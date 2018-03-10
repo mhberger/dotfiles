@@ -97,6 +97,7 @@ Plugin 'tpope/vim-rsi'
 Plugin 'terryma/vim-expand-region'
 Plugin 'textobj-entire'
 Plugin 'justinmk/vim-sneak'
+Plugin 'mattn/emmet-vim'
 
 nmap <Leader>f <Plug>Sneak_s
 nmap <Leader>F <Plug>Sneak_S
@@ -660,8 +661,8 @@ set nrformats=
 
 " Highlighting – Solarized8 Theme
 " https://github.com/lifepillar/vim-solarized8
-set t_8f=[38;2;%lu;%lu;%lum
-set t_8b=[48;2;%lu;%lu;%lum
+" set t_8f=[38;2;%lu;%lu;%lum
+" set t_8b=[48;2;%lu;%lu;%lum
 
 nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
     \ ? substitute(g:colors_name, 'dark', 'light', '')
@@ -679,7 +680,7 @@ nmap <leader><F12> :<c-u>call Solarized8Contrast(-v:count1)<cr>
 nmap <leader><S-F12> :<c-u>call Solarized8Contrast(+v:count1)<cr>
 
 " Moved to mhb_colors
-colorscheme solarized8_light_high
+" colorscheme solarized8_light_high
 
 " Useful when using :sil Nread http://www.google.com/
 let g:netrw_http_cmd = 'curl -s -o'

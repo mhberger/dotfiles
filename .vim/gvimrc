@@ -7,3 +7,5 @@ se antialias
 delcommand Educate
 delcommand NoEducate
 delcommand ToggleEducate
+
+colorscheme solarized8_light_high
