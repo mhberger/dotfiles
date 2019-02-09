@@ -682,6 +682,14 @@ nmap <leader>JJ :<c-u>call Solarized8Contrast(+v:count1)<cr>
 nmap <leader><F12> :<c-u>call Solarized8Contrast(-v:count1)<cr>
 nmap <leader><S-F12> :<c-u>call Solarized8Contrast(+v:count1)<cr>
 
+fun! FixColors()
+  colorscheme solarized8_flat
+  hi NonText ctermfg=7 guifg=gray
+  hi SpecialKey ctermfg=7 guifg=gray
+endf
+
+nmap <leader>kk :<c-u>call FixColors()<cr>
+
 " Moved to mhb_colors
 " colorscheme solarized8_light_high
 

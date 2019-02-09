@@ -9,3 +9,5 @@ delcommand NoEducate
 delcommand ToggleEducate
 
 "colorscheme solarized8_light_high
+
+"call FixColors()
