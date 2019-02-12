@@ -5,6 +5,16 @@
 #  PLAYING AROUND
 # ----------------
 
+snippet makejson
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+  String makeJson(obj) {
+    def json = new JsonBuilder()
+    json(obj)
+    JsonOutput.prettyPrint(JsonOutput.toJson(json.content))
+  }
+endsnippet
+
 snippet closewr
   Implemented by change xxxx on 1 June 2015.
 endsnippet
@@ -121,6 +131,19 @@ endsnippet
 
 snippet sout "MHB groovy println"
 System.out.println "
+endsnippet
+
+snippet cl "MHB js console.log"
+console.log($1);
+endsnippet
+
+snippet clp "MHB js console.log with parameter"
+console.log(\`${1:text} \${${2:var}}\`);
+endsnippet
+
+
+snippet souterr "MHB groovy println"
+System.out.println "MHB errors ${command?.errors?.dump()}"
 endsnippet
 
 snippet cl "MHB js console.log"
