@@ -99,7 +99,7 @@ Plugin 'tpope/vim-rsi'
 Plugin 'terryma/vim-expand-region'
 Plugin 'textobj-entire'
 Plugin 'justinmk/vim-sneak'
-" Plugin 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 
 nmap <Leader>f <Plug>Sneak_s
 nmap <Leader>F <Plug>Sneak_S

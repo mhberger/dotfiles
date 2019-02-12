@@ -1,3 +1,4 @@
+let macvim_skip_colorscheme=1
 " set background=light
 colorscheme solarized8
 hi NonText ctermfg=7 guifg=gray
@@ -7,7 +8,10 @@ hi SpecialKey ctermfg=7 guifg=gray
 delcommand Educate
 delcommand NoEducate
 delcommand ToggleEducate
+delcommand Emmet
+delcommand EmmetInstall
 
-"colorscheme solarized8_light_high
+" colorscheme solarized8_light_high
+colorscheme solarized8_high
 
 "call FixColors()
