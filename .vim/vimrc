@@ -462,7 +462,7 @@ vmap V <Plug>(expand_region_shrink)
     \ }
 
   " netrw-gx Use gx to open links in iCab - help gx
-  let g:netrw_browsex_viewer= "open -a /Applications/Brave.app"
+  let g:netrw_browsex_viewer= 'open -a "/Applications/Brave Browser.app"'
   " let g:netrw_browsex_viewer= "open -a /Applications/Firefox.app"
   " let g:netrw_browsex_viewer= "open -a /Applications/iCab.app"
 
