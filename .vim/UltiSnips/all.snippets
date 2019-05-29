@@ -349,6 +349,14 @@ snippet gituserred "MHB redenergy git user"
 	email = mark.berger@redenergy.com.au
 endsnippet
 
+snippet apacheif "MHB apache conditional"
+<!--#if expr="thisdoes=notshowinhtml" -->
+<!--#endif -->
+endsnippet
+
+snippet apacheinc "MHB apache include"
+<!--#include virtual="some_file_name.html" -->
+endsnippet
 
 snippet deletenmirole "MHB template deleting nmi role rows"
 DELETE FROM nmi_role_version WHERE nmi = '$1' AND role = '$2';
