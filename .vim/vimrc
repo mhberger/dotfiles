@@ -688,6 +688,10 @@ nmap <leader><S-F12> :<c-u>call Solarized8Contrast(+v:count1)<cr>
 " Useful when using :sil Nread http://www.google.com/
 let g:netrw_http_cmd = 'curl -s -o'
 
+" Stay on the current search term when using *
+" https://stackoverflow.com/a/7772282 comment 2
+:nnoremap * *N
+
 " TODO Interesting, need a clean way getting to buffer quickly.
 " " Airline to show buffers.
 " " http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
