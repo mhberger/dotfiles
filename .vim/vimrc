@@ -50,6 +50,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vinegar'
 Plugin 'thinca/vim-quickrun'
 " Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'nelstrom/vim-markdown-folding'
@@ -98,7 +99,7 @@ Plugin 'tpope/vim-rsi'
 Plugin 'terryma/vim-expand-region'
 Plugin 'textobj-entire'
 Plugin 'justinmk/vim-sneak'
-Plugin 'mattn/emmet-vim'
+" Plugin 'mattn/emmet-vim'
 
 nmap <Leader>f <Plug>Sneak_s
 nmap <Leader>F <Plug>Sneak_S
