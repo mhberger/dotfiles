@@ -723,6 +723,10 @@ let g:netrw_http_cmd = 'curl -s -o'
 " nmap <SwipeLeft> gT
 " nmap <SwipeRight> gt
 
+" digraph for bullet • <opt-8> on Mac
+digraph .. 8226
+
+
 " TODO
 " damianconway vim – mathvim and dragvisual
 " https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/plugin/vmath.vim
