@@ -11,6 +11,6 @@ endif
 " Needs to be somewhere else for vim and neovim now. Something to do with
 " color schemes
 " http://stackoverflow.com/questions/21112972/macvim-gets-all-settings-from-vimrc-but-not-the-colors-and-i-have-to-source
-colorscheme solarized8_flat
+" colorscheme solarized8_flat
 hi NonText ctermfg=7 guifg=gray
 hi SpecialKey ctermfg=7 guifg=gray
