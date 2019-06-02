@@ -162,8 +162,6 @@ set tildeop
 
   syntax enable
   set history=500
-" set background=dark
-" colorscheme solarized
 " set gfn=Monaco:h11.5
 " set gfn=Inconsolata:h14
   set t_Co=256
@@ -526,14 +524,7 @@ vmap V <Plug>(expand_region_shrink)
 "set statusline+=\ Buf:%n                    " Buffer number
 "set statusline+=\ [%b][0x%B]\               " ASCII and byte code under cursor
 "
-" Ensure that end of line markers are shown as gray
-" See http://stackoverflow.com/questions/903934/unable-to-make-gray-eol-character-by-vimrc
-" Needs to be in .gvimrc for macvim
-" Needs to be somewhere else for vim and neovim now. Something to do with
-" color schemes
-" http://stackoverflow.com/questions/21112972/macvim-gets-all-settings-from-vimrc-but-not-the-colors-and-i-have-to-source
-" hi NonText ctermfg=7 guifg=gray
-" hi SpecialKey ctermfg=7 guifg=gray
+" See colors/mhb_colors for documentation
 colorscheme mhb_colors_terminal
 let macvim_skip_colorscheme=1
 let g:colors_name = "mhb_colors"
@@ -700,9 +691,6 @@ fun! FixColors()
 endf
 
 nmap <leader>kk :<c-u>call FixColors()<cr>
-
-" Moved to mhb_colors
-" colorscheme solarized8_light_high
 
 " Useful when using :sil Nread http://www.google.com/
 let g:netrw_http_cmd = 'curl -s -o'

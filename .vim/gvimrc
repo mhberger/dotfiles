@@ -1,23 +1,12 @@
-" See https://stackoverflow.com/a/48908399
-" /Applications/MacVim.app/Contents/Resources/vim/vimrc
-" /Applications/MacVim.app/Contents/Resources/vim/gvimrc
+"
+" See colors/mhb_colors for documentation
 let macvim_skip_colorscheme=1
 let g:colors_name = "mhb_colors"
 colorscheme mhb_colors
 
-" set background=light
-" colorscheme solarized8
-" hi NonText ctermfg=7 guifg=gray
-" hi SpecialKey ctermfg=7 guifg=gray
-" se antialias
-
+" Skip commands that clash with Explore
 delcommand Educate
 delcommand NoEducate
 delcommand ToggleEducate
 delcommand Emmet
 delcommand EmmetInstall
-
-" colorscheme solarized8_light_high
-" colorscheme solarized8_high
-
-" call FixColors()
