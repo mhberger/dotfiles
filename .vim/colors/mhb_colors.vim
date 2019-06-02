@@ -1,4 +1,9 @@
 " See http://stackoverflow.com/questions/21112972/macvim-gets-all-settings-from-vimrc-but-not-the-colors-and-i-have-to-source
+"
+" See https://stackoverflow.com/a/48908399
+" /Applications/MacVim.app/Contents/Resources/vim/vimrc
+" /Applications/MacVim.app/Contents/Resources/vim/gvimrc
+"
 hi clear
 if exists("syntax_on")
     syntax reset
@@ -12,5 +17,8 @@ endif
 " color schemes
 " http://stackoverflow.com/questions/21112972/macvim-gets-all-settings-from-vimrc-but-not-the-colors-and-i-have-to-source
 " colorscheme solarized8_flat
+" Colorscheme does not work in colors file. See help colorscheme
+" colorscheme solarized8_high
+runtime colors/solarized8_high.vim
 hi NonText ctermfg=7 guifg=gray
 hi SpecialKey ctermfg=7 guifg=gray

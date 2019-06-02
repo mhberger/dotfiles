@@ -532,9 +532,11 @@ vmap V <Plug>(expand_region_shrink)
 " Needs to be somewhere else for vim and neovim now. Something to do with
 " color schemes
 " http://stackoverflow.com/questions/21112972/macvim-gets-all-settings-from-vimrc-but-not-the-colors-and-i-have-to-source
-hi NonText ctermfg=7 guifg=gray
-hi SpecialKey ctermfg=7 guifg=gray
-colorscheme mhb_colors
+" hi NonText ctermfg=7 guifg=gray
+" hi SpecialKey ctermfg=7 guifg=gray
+colorscheme mhb_colors_terminal
+let macvim_skip_colorscheme=1
+let g:colors_name = "mhb_colors"
 
 " http://vim.wikia.com/wiki/Quoted_Printable_to_Plain
 nnoremap <Leader>qp :%s/=\(\x\x\<BAR>\n\)/\=submatch(1)=='\n'?'':nr2char('0x'.submatch(1))/ge<CR>
@@ -692,7 +694,7 @@ nmap <leader><F12> :<c-u>call Solarized8Contrast(-v:count1)<cr>
 nmap <leader><S-F12> :<c-u>call Solarized8Contrast(+v:count1)<cr>
 
 fun! FixColors()
-  colorscheme solarized8_flat
+  colorscheme solarized8_high
   hi NonText ctermfg=7 guifg=gray
   hi SpecialKey ctermfg=7 guifg=gray
 endf
@@ -731,3 +733,6 @@ digraph .. 8226
 " damianconway vim – mathvim and dragvisual
 " https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/plugin/vmath.vim
 " vundlevim
+"
+"
+
