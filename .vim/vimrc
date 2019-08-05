@@ -461,8 +461,9 @@ vmap V <Plug>(expand_region_shrink)
   "   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   "   \ }
   " \ 'dir':  '\C\.vagrant$\|\.git$\|\.hg$\|\.svn$\|\.gradle$\|node_modules$\|buildSrc$\|build$\|target$\|dist$\|out$\|work',
+  "  \ 'dir':  '\v\|\venv$\|\.git$\|\.hg$\|\.svn$\|\.gradle$\|node_modules$\|buildSrc$\|build$\|target$\|dist$\|out$\|work\|SQL/migration/old$\|SQL/DDL$\|SQL/datafixes$\|SQL/update$\|SQL/Misc$\|BusinessObjectUnitTests$\|GTPollUnitTests$\|ImporterUnitTests$\|NEM12PollUnitTests$\|NMIPollUnitTests$\|Tasks$\|TicketFiles$\|Tools$\|WayneDAL$\|WayneImporter$\|WayneObjects$\|WayneService$\|WayneUtil$\|Website$',
   let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\C\.vagrant$\|\venv$\|\.git$\|\.hg$\|\.svn$\|\.gradle$\|node_modules$\|buildSrc$\|build$\|target$\|dist$\|out$\|work\|SQL/migration/old$\|SQL/DDL$\|SQL/datafixes$\|SQL/update$\|SQL/Misc$\|BusinessObjectUnitTests$\|GTPollUnitTests$\|ImporterUnitTests$\|NEM12PollUnitTests$\|NMIPollUnitTests$\|Tasks$\|TicketFiles$\|Tools$\|WayneDAL$\|WayneImporter$\|WayneObjects$\|WayneService$\|WayneUtil$\|Website$',
+    \ 'dir':  '\v\.(git|hg|svn)|build',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$\|\.pdf$\|\.war$\|\.zip$\|\.tgz$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
