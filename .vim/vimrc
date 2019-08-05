@@ -41,7 +41,7 @@ nnoremap \v Go<!--<cr>vim:ft=markdown:tw=73<cr>--><esc>gg
 "------------------------
 " runtime macros/matchit.vim
 " original repos on github
-Plugin 'tpope/vim-speeddating'
+" Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
