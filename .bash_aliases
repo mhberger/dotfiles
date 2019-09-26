@@ -1,3 +1,10 @@
+# http://stackoverflow.com/questions/4642822/commands-executed-from-vim-are-not-recognizing-bash-command-aliases
+shopt -s expand_aliases
+
+alias time24hour='/bin/date \+\%-H:\%M'
+alias sayrandom='say -v $(/Users/mark/dev/sh/randomEnglishVoice.sh)'
+alias whatip='curl -s https://api.ipify.org'
+
 alias agd='sudo apt-get dist-upgrade'
 alias agi='sudo apt-get install'
 alias agr='sudo apt-get remove'
@@ -17,6 +24,19 @@ alias dush='du -hs .[^.]* *'
 alias dt="date +%Y-%m-%d"
 alias ts="date +%Y%m%d_%H%M%S"
 alias dtc="date +%Y%m%d"
+
+alias treed='tree -d'
+alias treedn='tree -d -L '
+alias treen='tree -L '
+
+alias rgu='rg -uuu'
+alias rgl='rg -l'
+
+alias loadnvm='export NVM_DIR="$HOME/.nvm";[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
+alias setnode8='nvm use --delete-prefix 8'
+alias setnode9='nvm use --delete-prefix 9'
+alias setnode10='nvm use --delete-prefix 10'
+alias setnode6='nvm use --delete-prefix 6'
 
 alias ga='git add'
 alias gai='git add --interactive'
