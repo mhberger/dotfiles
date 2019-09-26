@@ -101,6 +101,8 @@ Plugin 'textobj-entire'
 Plugin 'justinmk/vim-sneak'
 Plugin 'mattn/emmet-vim'
 Plugin 'bumaociyuan/vim-swift'
+Plugin 'posva/vim-vue'
+Plugin 'mbbill/undotree'
 
 nmap <Leader>f <Plug>Sneak_s
 nmap <Leader>F <Plug>Sneak_S
