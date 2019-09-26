@@ -698,6 +698,7 @@ let g:netrw_http_cmd = 'curl -s -o'
 " Stay on the current search term when using *
 " https://stackoverflow.com/a/7772282 comment 2
 :nnoremap * *N
+:nnoremap # #N
 
 " TODO Interesting, need a clean way getting to buffer quickly.
 " " Airline to show buffers.
@@ -715,6 +716,10 @@ let g:netrw_http_cmd = 'curl -s -o'
 
 " digraph for bullet • <opt-8> on Mac
 digraph .. 8226
+
+" digraph for line break used in Keynote (shift-return) hex 2028 8232 i.e. this would start on a new line
+digraph sr 8232
+:match MatchParen / /
 
 
 " TODO
