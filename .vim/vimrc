@@ -103,6 +103,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'bumaociyuan/vim-swift'
 Plugin 'posva/vim-vue'
 Plugin 'mbbill/undotree'
+Plugin 'tpope/vim-surround'
+Plugin 'tyru/open-browser.vim'
 
 nmap <Leader>f <Plug>Sneak_s
 nmap <Leader>F <Plug>Sneak_S
@@ -474,9 +476,15 @@ vmap V <Plug>(expand_region_shrink)
     \ }
 
   " netrw-gx Use gx to open links in iCab - help gx
-  let g:netrw_browsex_viewer= 'open -a "/Applications/Brave Browser.app"'
+  " let g:netrw_browsex_viewer= 'open -a /Applications/Brave\ Browser.app'
   " let g:netrw_browsex_viewer= "open -a /Applications/Firefox.app"
   " let g:netrw_browsex_viewer= "open -a /Applications/iCab.app"
+
+  " netrw-gx broken. Use plugin
+  " https://github.com/larrylv/dotfiles/commit/f57b8e8bea48f7235183061b9a01cfd87cca0a40
+  " let g:netrw_nogx = 1 " disable netrw's gx mapping.
+  nmap gx <Plug>(openbrowser-open)
+  vmap gx <Plug>(openbrowser-open)
 
   let g:netrw_list_hide= '.*\.swp$,\.vagrant,\.git,\.svn'
 
