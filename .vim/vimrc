@@ -103,7 +103,6 @@ Plugin 'mattn/emmet-vim'
 Plugin 'bumaociyuan/vim-swift'
 Plugin 'posva/vim-vue'
 Plugin 'mbbill/undotree'
-Plugin 'tpope/vim-surround'
 Plugin 'tyru/open-browser.vim'
 
 nmap <Leader>f <Plug>Sneak_s
