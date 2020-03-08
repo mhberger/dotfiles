@@ -12,6 +12,7 @@ let g:loaded_python3_provider = 0
 let g:python_host_prog = '/opt/local/bin/python'
 
 let mapleader = "\<Space>"
+let maplocalleader = ","
 " let mapleader = ","
 
 "------------------------
