@@ -108,6 +108,7 @@ Plugin 'bumaociyuan/vim-swift'
 Plugin 'posva/vim-vue'
 Plugin 'mbbill/undotree'
 Plugin 'tyru/open-browser.vim'
+Plugin 'triglav/vim-visual-increment'
 
 nmap <Leader>f <Plug>Sneak_s
 nmap <Leader>F <Plug>Sneak_S
@@ -591,6 +592,7 @@ endfunction
 " redirect output of find to scratch directory
 command! -nargs=? F let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a
 command! -nargs=? FC let @a='' | execute 'redir @a' | execute 'silent <args>' | execute 'redir END' | new | setlocal bt=nofile | put! a
+command! -nargs=? FZ let @a='' | silent execute 'silent redir @a' | silent execute 'silent g/<args>/p#' | silent execute 'silent redir END' | silent new | silent setlocal bt=nofile | silent put! a
 
 " fix up syntax highlighting.
 nnoremap <silent> ss :syn sync fromstart<CR>
