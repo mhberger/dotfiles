@@ -472,7 +472,7 @@ vmap V <Plug>(expand_region_shrink)
   "   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   "   \ }
   let g:ctrlp_custom_ignore = {
-    \ 'dir':  'build',
+    \ 'dir':  'build$\|node_modules$',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$\|\.pdf$\|\.war$\|\.zip$\|\.tgz$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
