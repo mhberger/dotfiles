@@ -62,6 +62,7 @@ Plugin 'coderifous/textobj-word-column.vim'
 Plugin 'rking/ag.vim'
 Plugin 'lifepillar/vim-solarized8'
 " Plugin 'Valloric/YouCompleteMe'
+Plugin 'l04m33/vlime', {'rtp': 'vim/'}
 
 " vim-scripts
 Plugin 'matchit.zip'
@@ -738,11 +739,24 @@ digraph .. 8226
 digraph sr 8232
 :match MatchParen / /
 
+" From https://github.com/leahneukirchen/lr/blob/c9c4a157d34cc18041890dc54afd040fadb441da/contrib/lr.vim
+" :Lr <lr-args> to browse lr(1) results in a new window,
+"               press return to open file in new window.
+" command! -n=* -complete=file Lr silent exe "R" "lr" <q-args> | res | silent f [lr] | map <buffer><CR> $hgF
 
 " TODO
 " damianconway vim – mathvim and dragvisual
 " https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/plugin/vmath.vim
 " vundlevim
+"
+" LISP – SBCL
+let g:vlime_cl_impl = "sbcl"
+function! VlimeBuildServerCommandFor_my_sbcl(vlime_loader, vlime_eval)
+    return ["/path/to/my/custom/sbcl",
+                \ "--load", "~/quicklisp/setup.lisp",
+                \ "--load", a:vlime_loader,
+                \ "--eval", a:vlime_eval]
+endfunction
 "
 "
 
