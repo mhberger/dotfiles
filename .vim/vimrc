@@ -109,6 +109,7 @@ Plugin 'posva/vim-vue'
 Plugin 'mbbill/undotree'
 Plugin 'tyru/open-browser.vim'
 Plugin 'triglav/vim-visual-increment'
+Plugin 'christoomey/vim-titlecase'
 
 nmap <Leader>f <Plug>Sneak_s
 nmap <Leader>F <Plug>Sneak_S
@@ -117,6 +118,11 @@ xmap <Leader>F <Plug>Sneak_S
 omap <Leader>f <Plug>Sneak_s
 omap <Leader>F <Plug>Sneak_S
 
+" TitleCase
+let g:titlecase_map_keys = 0
+nmap <leader>gt <Plug>Titlecase
+vmap <leader>gt <Plug>Titlecase
+nmap <leader>gT <Plug>TitlecaseLine
 
 "------------------------
 " VUNDLE SAMPLE BUNDLES
