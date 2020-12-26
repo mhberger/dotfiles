@@ -164,6 +164,7 @@ augroup mhb_filetypes
   autocmd Filetype text,txt,textile setlocal comments=fb:-,fb:*
   autocmd FileType css map <leader>ccb I/*  <Esc>A  */<Esc>yyp0llvt*r-<Esc>yykPjj
   autocmd FileType groovy set commentstring=//\ %s
+  autocmd FileType swift set commentstring=//\ %s
   autocmd FileType gsp set commentstring=\%\{--\ %s\ --\}\%
   " autocmd FileType python,ruby,sh,zsh map <leader>ccb I#  <Esc>A  #<Esc>yyp0lv$hhr-yykPjj
 augroup END
@@ -339,6 +340,23 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <D-CR> :ZoomToggle<CR>
+
+function! s:MaximizeWindowToggle() abort
+    if exists('t:maximizedWindow') && t:maximizedWindow
+        " keep maxed until we work out how to save/restoer settngs
+        execute 'set lines=999 columns=999'
+        let t:maximizedWindow = 0
+    else
+        execute 'set lines=999 columns=999'
+        let t:maximizedWindow = 1
+        " let t:zoom_winrestcmd = winrestcmd()
+        " resize
+        " vertical resize
+        " let t:zoomed = 1
+    endif
+endfunction
+command! MaximizeWindowToggle call s:MaximizeWindowToggle()
+nnoremap <silent> <Leader><CR> :MaximizeWindowToggle<CR>
 
 "
 "------------------------
