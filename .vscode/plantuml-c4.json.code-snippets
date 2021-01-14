@@ -1,0 +1,584 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"C4_Include_Context": {
+		"scope": "plantuml",
+		"prefix": "C4➤Include C4 Context Diagram",
+		"body": [
+			"!include https://raw.githubusercontent.com/plantuml-stdlib/C4-plantuml/master/C4_Context.puml"
+		],
+		"description": "Include C4 Context Diagram"
+	},
+	"C4_Include_Container": {
+		"scope": "plantuml",
+		"prefix": "C4➤Include C4 Container Diagram",
+		"body": [
+			"!include https://raw.githubusercontent.com/plantuml-stdlib/C4-plantuml/master/C4_Container.puml"
+		],
+		"description": "Include C4 Container Diagram"
+	},
+	"C4_Include_Component": {
+		"scope": "plantuml",
+		"prefix": "C4➤Include C4 Component Diagram",
+		"body": [
+			"!include https://raw.githubusercontent.com/plantuml-stdlib/C4-plantuml/master/C4_Component.puml"
+		],
+		"description": "Include C4 Component Diagram"
+	},
+	"C4_Include_Deployment": {
+		"scope": "plantuml",
+		"prefix": "C4➤Include C4 Deployment Diagram",
+		"body": [
+			"!include https://raw.githubusercontent.com/plantuml-stdlib/C4-plantuml/master/C4_Deployment.puml"
+		],
+		"description": "Include C4 Deployment Diagram"
+	},
+	"C4_Include_Dynamic": {
+		"scope": "plantuml",
+		"prefix": "C4➤Include C4 Dynamic Diagram",
+		"body": [
+			"!include https://raw.githubusercontent.com/plantuml-stdlib/C4-plantuml/master/C4_Dynamic.puml"
+		],
+		"description": "Include C4 Dynamic Diagram"
+	},
+	"C4_Person": {
+		"scope": "plantuml",
+		"prefix": "C4➤Person",
+		"body": [
+			"Person(${1:alias}, \"${2:label}\")"
+		],
+		"description": "Add Person to C4 diagram"
+	},
+	"C4_Person_Descr": {
+		"scope": "plantuml",
+		"prefix": "C4➤Person with Description",
+		"body": [
+			"Person(${1:alias}, \"${2:label}\", \"${3:description}\")"
+		],
+		"description": "Add Person with Description to C4 diagram"
+	},
+	"C4_Person_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Person",
+			"C4➤Person (External)"
+		],
+		"body": [
+			"Person_Ext(${1:alias}, \"${2:label}\")"
+		],
+		"description": "Add External Person to C4 diagram"
+	},
+	"C4_Person_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Person with Description",
+			"C4➤Person (External) with Description"
+		],
+		"body": [
+			"Person_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")"
+		],
+		"description": "Add External Person with Description to C4 diagram"
+	},
+	"C4_Container": {
+		"scope": "plantuml",
+		"prefix": "C4➤Container",
+		"body": [
+			"Container(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add Container to C4 diagram"
+	},
+	"C4_Container_Descr": {
+		"scope": "plantuml",
+		"prefix": "C4➤Container with Description",
+		"body": [
+			"Container(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add Container with Description to C4 diagram"
+	},
+	"C4_Container_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Container",
+			"C4➤Container (External)"
+		],
+		"body": [
+			"Container_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Container to C4 diagram"
+	},
+	"C4_Container_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Container with Description",
+			"C4➤Container (External) with Description"
+		],
+		"body": [
+			"Container_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add External Container with Description to C4 diagram"
+	},
+	"C4_ContainerDb": {
+		"scope": "plantuml",
+		"prefix": "C4➤Database Container",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add Database Container to C4 diagram"
+	},
+	"C4_ContainerDb_Descr": {
+		"scope": "plantuml",
+		"prefix": "C4➤Database Container with Description",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add Database Container with Description to C4 diagram"
+	},
+	"C4_ContainerDb_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Database Container",
+			"C4➤Database Container (External)"
+		],
+		"body": [
+			"ContainerDb_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Database Container to C4 diagram"
+	},
+	"C4_ContainerDb_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Database Container with Description",
+			"C4➤Database Container (External) with Description"
+		],
+		"body": [
+			"ContainerDb_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add External Database Container with Description to C4 diagram"
+	},
+	"C4_ContainerQueue": {
+		"scope": "plantuml",
+		"prefix": "C4➤Queue Container",
+		"body": [
+			"ContainerQueue(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add Queue Container to C4 diagram"
+	},
+	"C4_ContainerQueue_Descr": {
+		"scope": "plantuml",
+		"prefix": "C4➤Queue Container with Description",
+		"body": [
+			"ContainerQueue(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add Queue Container with Description to C4 diagram"
+	},
+	"C4_ContainerQueue_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Queue Container",
+			"C4➤Queue Container (External)"
+		],
+		"body": [
+			"ContainerQueue_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Queue Container to C4 diagram"
+	},
+	"C4_ContainerQueue_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Queue Container with Description",
+			"C4➤Queue Container (External) with Description"
+		],
+		"body": [
+			"ContainerQueue_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add ExternalQueue Container with Description to C4 diagram"
+	},
+	"C4_Container_Boundary": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Container Boundary",
+			"C4➤Boundary for Container"
+		],
+		"body": [
+			"Container_Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a Container Boundary to C4 diagram"
+	},
+	"C4_Component": {
+		"scope": "plantuml",
+		"prefix": "C4➤Component",
+		"body": [
+			"Component(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add Component to C4 diagram"
+	},
+	"C4_Component_Descr": {
+		"scope": "plantuml",
+		"prefix": "C4➤Component with Description",
+		"body": [
+			"Component(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add Component with Description to C4 diagram"
+	},
+	"C4_Component_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Component",
+			"C4➤Component (External)"
+		],
+		"body": [
+			"Component_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Component to C4 diagram"
+	},
+	"C4_Component_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Component with Description",
+			"C4➤Component (External) with Description"
+		],
+		"body": [
+			"Component_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add External Component with Description to C4 diagram"
+	},
+	"C4_ComponentDb": {
+		"scope": "plantuml",
+		"prefix": "C4➤Database Component",
+		"body": [
+			"ComponentDb(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add Database Component to C4 diagram"
+	},
+	"C4_ComponentDb_Descr": {
+		"scope": "plantuml",
+		"prefix": "C4➤Database Component with Description",
+		"body": [
+			"ComponentDb(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add Database Component with Description to C4 diagram"
+	},
+	"C4_ComponentDb_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Database Component",
+			"C4➤Database Component (External)"
+		],
+		"body": [
+			"ComponentDb_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Database Component to C4 diagram"
+	},
+	"C4_ComponentDb_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Database Component with Description",
+			"C4➤Database Component (External) with Description"
+		],
+		"body": [
+			"ComponentDb_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add External Database Component with Description to C4 diagram"
+	},
+	"C4_ComponentQueue": {
+		"scope": "plantuml",
+		"prefix": "C4➤Queue Component",
+		"body": [
+			"ComponentQueue(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add Queue Component to C4 diagram"
+	},
+	"C4_ComponentQueue_Descr": {
+		"scope": "plantuml",
+		"prefix": "C4➤Queue Component with Description",
+		"body": [
+			"ComponentQueue(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add Queue Component with Description to C4 diagram"
+	},
+	"C4_ComponentQueue_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Queue Component",
+			"C4➤Queue Component (External)"
+		],
+		"body": [
+			"ComponentQueue_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Queue Component to C4 diagram"
+	},
+	"C4_ComponentQueue_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External Queue Component with Description",
+			"C4➤Queue Component (External) with Description"
+		],
+		"body": [
+			"ComponentQueue_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add External Queue Component with Description to C4 diagram"
+	},
+	"C4_System": {
+		"scope": "plantuml",
+		"prefix": "C4➤System",
+		"body": [
+			"System(${1:alias}, \"${2:label}\")"
+		],
+		"description": "Add System to C4 diagram"
+	},
+	"C4_System_Descr": {
+		"scope": "plantuml",
+		"prefix": "C4➤System with Description",
+		"body": [
+			"System(${1:alias}, \"${2:label}\", \"${3:description}\")"
+		],
+		"description": "Add System with Description to C4 diagram"
+	},
+	"C4_System_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External System",
+			"C4➤System (External)"
+		],
+		"body": [
+			"System_Ext(${1:alias}, \"${2:label}\")"
+		],
+		"description": "Add External System to C4 diagram"
+	},
+	"C4_System_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤External System with Description",
+			"C4➤System (External) with Description"
+		],
+		"body": [
+			"System_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")"
+		],
+		"description": "Add External System with Description to C4 diagram"
+	},
+	"C4_System_Boundary": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤System Boundary",
+			"C4➤Boundary for System"
+		],
+		"body": [
+			"System_Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a System Boundary to C4 diagram"
+	},
+	"C4_Enterprise_Boundary": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Enterprise Boundary",
+			"C4➤Boundary for Enterprise"
+		],
+		"body":[
+			"Enterprise_Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add an Enterprise Boundary to C4 diagram"
+	},
+	"C4_Relationship": {
+		"scope": "plantuml",
+		"prefix": "C4➤Relationship",
+		"body": [
+			"Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\")"
+		],
+		"description": "Add unidirectional Relationship to C4 diagram"
+	},
+	"C4_Relationship_Techn": {
+		"scope": "plantuml",
+		"prefix": "C4➤Relationship with Technology",
+		"body": [
+			"Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")"
+		],
+		"description": "Add unidirectional Relationship with Technology to C4 diagram"
+	},
+	"C4_Relationship_Bi": {
+		"scope": "plantuml",
+		"prefix": "C4➤Bidirectional Relationship",
+		"body": [
+			"BiRel(${1:from_alias}, ${2:to_alias}, \"${3:label}\")"
+		],
+		"description": "Add bidirectional Relationship to C4 diagram"
+	},
+	"C4_Relationship_Bi_Techn": {
+		"scope": "plantuml",
+		"prefix": "C4➤Bidirectional Relationship with Technology",
+		"body": [
+			"BiRel(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")"
+		],
+		"description": "Add bidirectional Relationship with Technology to C4 diagram"
+	},
+	"C4_Relationship_Index": {
+		"scope": "plantuml",
+		"prefix": "C4➤Relationship with Index",
+		"body": [
+			"RelIndex(${1:index}, ${2:from_alias}, ${3:to_alias}, \"${4:label}\")"
+		],
+		"description": "Add unidirectional Relationship to C4 Dynamic Diagram"
+	},
+	"C4_Relationship_Index_Techn": {
+		"scope": "plantuml",
+		"prefix": "C4➤Relationship with Technology and Index",
+		"body": [
+			"RelIndex(${1:index}, ${2:from_alias}, ${3:to_alias}, \"${4:label}\", \"${5:technology}\")"
+		],
+		"description": "Add unidirectional Relationship with Technology to C4 Dynamic Diagram"
+	},
+	"C4_Layout_Right": {
+		"scope": "plantuml",
+		"prefix": "C4➤Layout to Right side",
+		"body": [
+			"Lay_R(${1:from_alias}, ${2:to_alias})"
+		],
+		"description": "Add hidden layout line to put {to} to the right of {from}"
+	},
+	"C4_Layout_Left": {
+		"scope": "plantuml",
+		"prefix": "C4➤Layout to Left side",
+		"body": [
+			"Lay_L(${1:from_alias}, ${2:to_alias})"
+		],
+		"description": "Add hidden layout line to put {to} to the left of {from}"
+	},
+	"C4_Boundary": {
+		"scope": "plantuml",
+		"prefix": "C4➤Boundary",
+		"body": [
+			"Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a generic boundary to C4 diagram."
+	},
+	"C4_Boundary_Type": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Boundary with type"
+		],
+		"body": [
+			"Boundary(${1:alias}, \"${2:label}\", \"${3:type}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a generic boundary to C4 diagram."
+	},
+	"C4_Deployment_Node": {
+		"scope": "plantuml",
+		"prefix": "C4➤Deployment Node",
+		"body": [
+			"Deployment_Node(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a deployment node to C4 diagram."
+	},
+	"C4_Deployment_Node_Type": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Deployment Node with type"
+		],
+		"body": [
+			"Deployment_Node(${1:alias}, \"${2:label}\", \"${3:type}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a deployment node to C4 diagram."
+	},
+	"C4_Dynamic_Increment": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Increment index"
+		],
+		"body": [
+			"increment(${1:count})"
+		],
+		"description": "Increment index of C4 Dynamic Diagram."
+	},
+	"C4_Dynamic_Set_Index": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Set index"
+		],
+		"body": [
+			"setIndex(${1:value})"
+		],
+		"description": "Set index of C4 Dynamic Diagram"
+	},
+	"C4_Hide_Stereotype": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Hide stereotype",
+			"C4➤No stereotype"
+		],
+		"body": [
+			"HIDE_STEREOTYPE()"
+		],
+		"description": "Hide stereotypes from C4 diagram.."
+	},
+	"C4_Layout_With_Legend": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Layout with legend",
+			"C4➤Legend layout"
+		],
+		"body": [
+			"LAYOUT_WITH_LEGEND()"
+		],
+		"description": "Add legend to C4 diagram."
+	},
+	"C4_Layout_Left_Right": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Layout left to right",
+			"C4➤Left to right layout"
+		],
+		"body": [
+			"LAYOUT_LEFT_RIGHT()"
+		],
+		"description": "Left to right layout for C4 diagram."
+	},
+	"C4_Layout_Top_Down": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Layout top down",
+			"C4➤Top down layout"
+		],
+		"body": [
+			"LAYOUT_TOP_DOWN()"
+		],
+		"description": "Top down layout for C4 diagram."
+	},
+	"C4_Layout_As_Sketch": {
+		"scope": "plantuml",
+		"prefix": [
+			"C4➤Layout as sketch",
+			"C4➤Sketch layout"
+		],
+		"body": [
+			"LAYOUT_AS_SKETCH()"
+		],
+		"description": "Sketch layout for C4 diagram."
+	}
+}
