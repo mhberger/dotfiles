@@ -15,6 +15,9 @@ let mapleader = "\<Space>"
 let maplocalleader = ","
 " let mapleader = ","
 
+let g:ft_man_open_mode = 'tab'
+" let g:ft_man_open_mode = 'vert'
+
 "------------------------
 " let g:quickrun_config = {'outputter/buffer/split': ""}
 let g:quickrun_config = {'outputter/buffer/name': "joe_run",'outputter/buffer/split': "", 'output/buffer/into': "1"}
