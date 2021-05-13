@@ -114,6 +114,7 @@ Plugin 'mbbill/undotree'
 Plugin 'tyru/open-browser.vim'
 Plugin 'triglav/vim-visual-increment'
 Plugin 'christoomey/vim-titlecase'
+Plugin 'udalov/kotlin-vim'
 
 nmap <Leader>f <Plug>Sneak_s
 nmap <Leader>F <Plug>Sneak_S
