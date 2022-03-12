@@ -1,4 +1,4 @@
-<keymap version="1" name="Mac OS X Heinz" parent="Mac OS X">
+<keymap version="1" name="macOS_MHB" parent="Mac OS X 10.5+">
   <action id="$Delete">
     <keyboard-shortcut first-keystroke="delete" />
     <keyboard-shortcut first-keystroke="back_space" />
