@@ -663,8 +663,8 @@ let g:aghighlight=1
 " set guifont=Hack:h14
 " set guifont=Triplicate\ T4c:h14
 " set guifont=IBM\ Plex\ Mono\ Text:h14
-set guifont=BerkeleyMono-Regular:h14
-" set guifont=PragmataPro\ Mono\ Regular:h16
+" set guifont=BerkeleyMono-Regular:h15
+set guifont=PragmataPro\ Mono\ Regular:h16
 "
 " http://vim.1045645.n5.nabble.com/how-to-disable-the-highlighting-of-parenthesis-matching-td1172446.html
 " http://vimrc-dissection.blogspot.com.au/2006/09/vim-7-re-turn-off-parenparenthesiswhat.html
