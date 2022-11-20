@@ -39,4 +39,6 @@ alias ll='ls -altr'
 
 alias ~updatealiasmhb='curl -o .bash_aliases_mhb -Ls https://github.com/mhberger/dotfiles/raw/master/.bash_aliases_red'
 alias ~alias='vi ~/.bash_aliases_mhb && . ~/.bash_aliases_mhb'
-function  st() { echo "setting title to [${@}]"; export PROMPT_COMMAND='echo -ne "\033]0;'$@'\007"'; }
+
+function st() { echo "setting title to [${@}]"; export PROMPT_COMMAND='echo -ne "\033]0;'$@'\007"'; }
+function gitgrep () { git grep $@ $(git rev-list --all); }
