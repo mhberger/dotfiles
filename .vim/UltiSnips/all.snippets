@@ -288,6 +288,13 @@ snippet isoD "MHB ISO Date"
 `date +%Y-%m-%d`
 endsnippet
 
+snippet tplEP "MHB Template Execute Program"
+function learn_`date +%Y%m%d`$1() {
+$0
+}
+learn_`date +%Y%m%d`$1();
+endsnippet
+
 snippet isoday "MHB ISO Date with day"
 `date +%a\ %Y-%m-%d`
 endsnippet
