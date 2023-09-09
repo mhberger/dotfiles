@@ -10,3 +10,6 @@ delcommand NoEducate
 delcommand ToggleEducate
 delcommand Emmet
 delcommand EmmetInstall
+
+" Fix up Markdown error detection for _
+syn match markdownError "\w\@<=\w\@="
