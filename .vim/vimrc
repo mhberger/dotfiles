@@ -160,6 +160,8 @@ filetype plugin indent on     " required!
 "  ME
 "------------------------
 
+autocmd SwapExists * :let v:swapchoice='e'
+
 " Banners from http://stackoverflow.com/questions/5085892/textmate-comment-banner-in-vim
 " autocmd FileType vim map <leader>ccb I"<Del>  <Esc>A  "<Del><Esc>yyp0lv$hhr"yykPjj
 augroup mhb_filetypes
