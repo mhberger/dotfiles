@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Inspired by bbman from https://leancrew.com/all-this/2023/12/again-with-man-pages-and-bbedit/
+# but use Vim instead.
+#
+# Interpret the arguments as command name and section. As with `man`,
+# the section is optional and comes first if present.
+if [[ $# -lt 2 ]]; then
+  cmd=${1}
+  sec=''
+else
+  cmd=${2}
+  sec=${1}
+fi
+
+# Get the formatted man page, filter out backspaces and convert tabs
+# to spaces, and open the text in a new temporary Vim file with appropriate
+# title/name.
+man $sec $cmd | col -bx | /Applications/MacVim.app/Contents/bin/mvim -nm --not-a-term +"se buftype=nofile" +"file vvman ${cmd}" -
