@@ -44,7 +44,13 @@ alias ts="date +%Y%m%d_%H%M%S"
 alias ls='ls --color=auto'
 alias ll='ls -altr'
 
+alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
+alias mvimdiff='/Applications/MacVim.app/Contents/bin/mvimdiff'
+alias viw='mvim'
+alias viw-='mvim -nm --not-a-term +"se buftype=nofile" -'
+
 alias ~updatealiasmhb='curl -LOs https://github.com/mhberger/dotfiles/raw/master/.bash_aliases_mhb'
 alias ~alias='vi ~/.bash_aliases_mhb && . ~/.bash_aliases_mhb'
+
 function st() { echo "setting title to [${@}]"; export PROMPT_COMMAND='echo -ne "\033]0;'$@'\007"'; }
 function gitgrep () { git grep $@ $(git rev-list --all); }
