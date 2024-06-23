@@ -67,7 +67,7 @@ Plugin 'coderifous/textobj-word-column.vim'
 Plugin 'rking/ag.vim'
 Plugin 'lifepillar/vim-solarized8'
 " Plugin 'Valloric/YouCompleteMe'
-Plugin 'l04m33/vlime', {'rtp': 'vim/'}
+" Plugin 'l04m33/vlime', {'rtp': 'vim/'}
 
 " vim-scripts
 Plugin 'matchit.zip'
@@ -93,8 +93,8 @@ Plugin 'repeat.vim'
 Plugin 'rizzatti/funcoo.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'honza/vim-snippets'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'einars/js-beautify'
+" Plugin 'maksimr/vim-jsbeautify'
+" Plugin 'einars/js-beautify'
 Plugin 'nelstrom/vim-qargs'
 Plugin 'bling/vim-airline'
 Plugin 'itspriddle/vim-marked'
@@ -116,6 +116,7 @@ Plugin 'tyru/open-browser.vim'
 Plugin 'triglav/vim-visual-increment'
 Plugin 'christoomey/vim-titlecase'
 Plugin 'udalov/kotlin-vim'
+Plugin 'NoahTheDuke/vim-just'
 
 nmap <Leader>f <Plug>Sneak_s
 nmap <Leader>F <Plug>Sneak_S
@@ -785,13 +786,13 @@ digraph sr 8232
 " vundlevim
 "
 " LISP – SBCL
-let g:vlime_cl_impl = "sbcl"
-function! VlimeBuildServerCommandFor_my_sbcl(vlime_loader, vlime_eval)
-    return ["/path/to/my/custom/sbcl",
-                \ "--load", "~/quicklisp/setup.lisp",
-                \ "--load", a:vlime_loader,
-                \ "--eval", a:vlime_eval]
-endfunction
+" let g:vlime_cl_impl = "sbcl"
+" function! VlimeBuildServerCommandFor_my_sbcl(vlime_loader, vlime_eval)
+"     return ["/path/to/my/custom/sbcl",
+"                 \ "--load", "~/quicklisp/setup.lisp",
+"                 \ "--load", a:vlime_loader,
+"                 \ "--eval", a:vlime_eval]
+" endfunction
 "
 "
 
