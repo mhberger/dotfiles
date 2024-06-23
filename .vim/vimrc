@@ -541,6 +541,10 @@ vmap V <Plug>(expand_region_shrink)
 "    hi statusline guibg=DarkRed ctermfg=1 guifg=Black ctermbg=0
 "  endif
 "endfunction
+
+" airline: Could not resolve airline theme "mhb_airline_theme". Themes have
+" been migrated to github.com/vim-airline/vim-airline-themes
+" let g:airline_theme = 'mhb_airline_theme'
 "
 "au InsertEnter * call InsertStatuslineColor(v:insertmode)
 "au InsertLeave * hi statusline guibg=#666666 ctermfg=8 guifg=White ctermbg=15
