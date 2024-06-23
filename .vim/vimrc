@@ -96,7 +96,9 @@ Plugin 'honza/vim-snippets'
 " Plugin 'maksimr/vim-jsbeautify'
 " Plugin 'einars/js-beautify'
 Plugin 'nelstrom/vim-qargs'
-Plugin 'bling/vim-airline'
+" Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'itspriddle/vim-marked'
 Plugin 'kana/vim-textobj-user'
 Plugin 'reedes/vim-textobj-quote'
@@ -544,7 +546,8 @@ vmap V <Plug>(expand_region_shrink)
 
 " airline: Could not resolve airline theme "mhb_airline_theme". Themes have
 " been migrated to github.com/vim-airline/vim-airline-themes
-" let g:airline_theme = 'mhb_airline_theme'
+let g:airline_theme = 'mhb_airline'
+"let g:airline_theme = 'term'
 "
 "au InsertEnter * call InsertStatuslineColor(v:insertmode)
 "au InsertLeave * hi statusline guibg=#666666 ctermfg=8 guifg=White ctermbg=15
