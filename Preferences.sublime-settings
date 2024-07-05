@@ -1,0 +1,14 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	"color_scheme": "auto",
+	"light_color_scheme": "Solarized (light).sublime-color-scheme",
+	"dark_color_scheme": "Solarized (dark).sublime-color-scheme",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"index_files": true,
+	"font_face": "PragmataPro Mono",
+	"font_size": 14,
+}
