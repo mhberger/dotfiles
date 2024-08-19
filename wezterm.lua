@@ -12,6 +12,8 @@ config.default_prog = { '/opt/local/bin/bash', '-l' }
 -- Find them here: https://wezfurlong.org/wezterm/colorschemes/index.html
 config.color_scheme = 'Solarized Light (Gogh)'
 
+-- disable setting hyperlinks.
+config.hyperlink_rules = {}
 config.font = wezterm.font 'PragmataPro Mono'
 config.font_rules = {
     {
