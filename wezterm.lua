@@ -1,5 +1,6 @@
 -- Import the wezterm module
 local wezterm = require 'wezterm'
+-- local cjson = require "cjson"
 
 -- Creates a config object which we will be adding our config to
 local config = wezterm.config_builder()
@@ -14,15 +15,26 @@ config.color_scheme = 'Solarized Light (Gogh)'
 
 -- disable setting hyperlinks.
 config.hyperlink_rules = {}
+
+-- WIP trying to select the bit after a forward slash (/)
+config.quick_select_patterns = {
+  -- match things that look like sha1 hashes
+  -- (this is actually one of the default patterns)
+  '[0-9a-f]{7,40}',
+  '([a-zA-Z0-9]{1,30})/',
+}
+
+
 config.font = wezterm.font 'PragmataPro Mono'
 config.font_rules = {
-    {
-        font = wezterm.font {
-            family = 'PragmataPro Mono',
-            weight = 'DemiLight'
-        },
+  {
+    font = wezterm.font {
+      family = 'PragmataPro Mono',
+      weight = 'DemiLight'
     },
+  },
 }
+
 config.font_size = 16
 -- You can specify some parameters to influence the font selection;
 -- for example, this selects a Bold, Italic font variant.
@@ -43,29 +55,38 @@ wezterm.log_info("Hello World! My host name is " .. wezterm.hostname())
 -- FUNCTIONS
 ---------------------------------
 wezterm.on('update-status', function(window)
-    -- Grab the utf8 character for the "powerline" left facing
-    -- solid arrow.
-    local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+  -- Grab the utf8 character for the "powerline" left facing
+  -- solid arrow.
+  local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 
-    -- Grab the current window's configuration, and from it the
-    -- palette (this is the combination of your chosen colour scheme
-    -- including any overrides).
-    local color_scheme = window:effective_config().resolved_palette
-    local bg = color_scheme.background
-    local fg = color_scheme.foreground
+  -- Grab the current window's configuration, and from it the
+  -- palette (this is the combination of your chosen colour scheme
+  -- including any overrides).
+  local color_scheme = window:effective_config().resolved_palette
+  local bg = color_scheme.background
+  local fg = color_scheme.foreground
 
-    window:set_right_status(wezterm.format({
-        -- First, we draw the arrow...
-        { Background = { Color = 'none' } },
-        { Foreground = { Color = bg } },
-        { Text = SOLID_LEFT_ARROW },
-        -- Then we draw our text
-        { Background = { Color = bg } },
-        { Foreground = { Color = fg } },
-        { Text = ' ' .. wezterm.hostname() .. ' ' },
-    }))
+  window:set_right_status(wezterm.format({
+    -- First, we draw the arrow...
+    { Background = { Color = 'none' } },
+    { Foreground = { Color = bg } },
+    { Text = SOLID_LEFT_ARROW },
+    -- Then we draw our text
+    { Background = { Color = bg } },
+    { Foreground = { Color = fg } },
+    { Text = ' ' .. wezterm.hostname() .. ' ' },
+  }))
 end)
 
+wezterm.on('show-font-size', function(window, pane)
+  wezterm.log_info("Font size is " .. window:effective_config().font_size)
+end)
+
+wezterm.on('show-wezterm-config', function(window, pane)
+  -- wezterm.copy_to_clipboard(window:effective_config())
+  -- wezterm.log_info(cjson.encode(window:effective_config()))
+  wezterm.log_info(window:effective_config())
+end)
 
 ---------------------------------
 -- CONFIGURE KEYS
@@ -73,22 +94,29 @@ end)
 local act = wezterm.action
 
 config.keys = {
-    {
-        key = ',',
-        mods = 'CMD',
-        action = wezterm.action.SpawnCommandInNewTab {
-            cwd = wezterm.home_dir,
-            args = { '/usr/local/bin/zed', wezterm.config_file },
-        }
-    }
+  {
+    key = ',',
+    mods = 'CMD',
+    action = wezterm.action.SpawnCommandInNewTab {
+      cwd = wezterm.home_dir,
+      args = { '/usr/local/bin/zed', wezterm.config_file },
+    },
+  },
+  {
+    key = 'E',
+    mods = 'CMD',
+    -- action = wezterm.action.EmitEvent 'show-font-size',
+    action = wezterm.action.EmitEvent 'show-wezterm-config',
+  },
 }
+
 for i = 1, 8 do
-    -- CMD + number to activate that window
-    table.insert(config.keys, {
-        key = tostring(i),
-        mods = 'CMD',
-        action = act.ActivateWindow(i - 1),
-    })
+  -- CMD + number to activate that window
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = 'CMD',
+    action = act.ActivateWindow(i - 1),
+  })
 end
 
 ---------------------------------
