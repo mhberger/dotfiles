@@ -14,12 +14,12 @@ config.color_scheme = 'Solarized Light (Gogh)'
 
 config.font = wezterm.font 'PragmataPro Mono'
 config.font_rules = {
-  {
-    font = wezterm.font {
-      family = 'PragmataPro Mono',
-      weight = 'DemiLight'
+    {
+        font = wezterm.font {
+            family = 'PragmataPro Mono',
+            weight = 'DemiLight'
+        },
     },
-  },
 }
 config.font_size = 16
 -- You can specify some parameters to influence the font selection;
@@ -27,33 +27,41 @@ config.font_size = 16
 -- config.font =
 --   wezterm.font('JetBrains Mono', { weight = 'Bold', italic = true })
 
+-- Rather than emitting fancy composed characters when alt is pressed, treat the
+-- input more like old school ascii with ALT held down
+config.send_composed_key_when_left_alt_is_pressed = true
+config.send_composed_key_when_right_alt_is_pressed = false
+
+-- similarly, don't ask the macOS IME/text services to compose input
+config.use_ime = false
+
 wezterm.log_info("Hello World! My host name is " .. wezterm.hostname())
 
 ---------------------------------
 -- FUNCTIONS
 ---------------------------------
 wezterm.on('update-status', function(window)
-  -- Grab the utf8 character for the "powerline" left facing
-  -- solid arrow.
-  local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+    -- Grab the utf8 character for the "powerline" left facing
+    -- solid arrow.
+    local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 
-  -- Grab the current window's configuration, and from it the
-  -- palette (this is the combination of your chosen colour scheme
-  -- including any overrides).
-  local color_scheme = window:effective_config().resolved_palette
-  local bg = color_scheme.background
-  local fg = color_scheme.foreground
+    -- Grab the current window's configuration, and from it the
+    -- palette (this is the combination of your chosen colour scheme
+    -- including any overrides).
+    local color_scheme = window:effective_config().resolved_palette
+    local bg = color_scheme.background
+    local fg = color_scheme.foreground
 
-  window:set_right_status(wezterm.format({
-    -- First, we draw the arrow...
-    { Background = { Color = 'none' } },
-    { Foreground = { Color = bg } },
-    { Text = SOLID_LEFT_ARROW },
-    -- Then we draw our text
-    { Background = { Color = bg } },
-    { Foreground = { Color = fg } },
-    { Text = ' ' .. wezterm.hostname() .. ' ' },
-  }))
+    window:set_right_status(wezterm.format({
+        -- First, we draw the arrow...
+        { Background = { Color = 'none' } },
+        { Foreground = { Color = bg } },
+        { Text = SOLID_LEFT_ARROW },
+        -- Then we draw our text
+        { Background = { Color = bg } },
+        { Foreground = { Color = fg } },
+        { Text = ' ' .. wezterm.hostname() .. ' ' },
+    }))
 end)
 
 
@@ -63,22 +71,22 @@ end)
 local act = wezterm.action
 
 config.keys = {
-  {
-    key = ',',
-    mods = 'CMD',
-    action = wezterm.action.SpawnCommandInNewTab {
-      cwd = wezterm.home_dir,
-      args = { '/usr/local/bin/zed', wezterm.config_file },
+    {
+        key = ',',
+        mods = 'CMD',
+        action = wezterm.action.SpawnCommandInNewTab {
+            cwd = wezterm.home_dir,
+            args = { '/usr/local/bin/zed', wezterm.config_file },
+        }
     }
-  }
 }
 for i = 1, 8 do
-  -- CMD + number to activate that window
-  table.insert(config.keys, {
-    key = tostring(i),
-    mods = 'CMD',
-    action = act.ActivateWindow(i - 1),
-  })
+    -- CMD + number to activate that window
+    table.insert(config.keys, {
+        key = tostring(i),
+        mods = 'CMD',
+        action = act.ActivateWindow(i - 1),
+    })
 end
 
 ---------------------------------
