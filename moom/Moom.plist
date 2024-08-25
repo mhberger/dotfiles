@@ -495,6 +495,12 @@
 	<true/>
 	<key>Grid Spacing: Gap</key>
 	<integer>1</integer>
+	<key>Key Control: Arrow: Command</key>
+	<integer>53</integer>
+	<key>Key Control: Arrow: Option</key>
+	<integer>52</integer>
+	<key>Key Control: Return</key>
+	<integer>1</integer>
 	<key>Key Control: Tab</key>
 	<integer>22</integer>
 	<key>Keyboard Controls</key>
@@ -519,7 +525,7 @@
 	<key>NSWindow Frame PMHelpManager: Moom Help</key>
 	<string>2161 570 719 493 0 0 2880 1595 </string>
 	<key>NSWindow Frame Settings Window (4001)</key>
-	<string>576 319 1728 957 0 0 2880 1595 </string>
+	<string>1150 319 971 807 0 0 2880 1595 </string>
 	<key>PMSparkleWrapper Status</key>
 	<dict>
 		<key>Check Date</key>
