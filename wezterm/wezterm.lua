@@ -74,7 +74,7 @@ wezterm.on('update-status', function(window)
     -- Then we draw our text
     { Background = { Color = bg } },
     { Foreground = { Color = fg } },
-    { Text = ' ' .. wezterm.hostname() .. ' ' },
+    { Text = ' ' .. window:window_id() + 1 .. '… ' },
   }))
 end)
 
