@@ -41,6 +41,12 @@ config.font_size = 16
 -- config.font =
 --   wezterm.font('JetBrains Mono', { weight = 'Bold', italic = true })
 
+-- tab bar
+config.use_fancy_tab_bar = true
+config.window_frame = {
+  font_size = 18.0
+}
+
 -- Rather than emitting fancy composed characters when alt is pressed, treat the
 -- input more like old school ascii with ALT held down
 config.send_composed_key_when_left_alt_is_pressed = true
