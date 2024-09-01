@@ -16,6 +16,19 @@ config.color_scheme = 'Solarized Light (Gogh)'
 -- disable setting hyperlinks.
 config.hyperlink_rules = {}
 
+-- Do not close windows automatically as it messes the order - does not work
+config.window_close_confirmation = 'AlwaysPrompt'
+config.skip_close_confirmation_for_processes_named = {
+  'sh',
+  'zsh',
+  'fish',
+  'tmux',
+  'nu',
+  'cmd.exe',
+  'pwsh.exe',
+  'powershell.exe',
+}
+
 -- WIP trying to select the bit after a forward slash (/)
 config.quick_select_patterns = {
   -- match things that look like sha1 hashes
@@ -113,6 +126,16 @@ config.keys = {
     mods = 'CMD',
     -- action = wezterm.action.EmitEvent 'show-font-size',
     action = wezterm.action.EmitEvent 'show-wezterm-config',
+  },
+  {
+    key = '9',
+    mods = 'ALT',
+    action = wezterm.action.ShowLauncherArgs { flags = 'FUZZY|KEY_ASSIGNMENTS|TABS|WORKSPACES' },
+  },
+  {
+    key = 'w',
+    mods = 'CMD',
+    action = wezterm.action.CloseCurrentTab { confirm = true },
   },
 }
 
