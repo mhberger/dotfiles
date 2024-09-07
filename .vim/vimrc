@@ -261,6 +261,7 @@ set tildeop
 
 " http://stackoverflow.com/questions/7845671/executing-base64-decode-on-a-selection-in-vim
   vnoremap <Leader>ml y:let @"=system('~/dev/ruby/makeLink.rb', @")<cr>gvP
+  vnoremap <Leader>mel y:let @"=system('~/dev/ruby/makeExternalLink.rb', @")<cr>gvP
 
 " http://stackoverflow.com/questions/9637921/vim-filter-only-visual-selection-not-the-entire-line
   " nnoremap <silent> ,! :set opfunc=ProgramFilter<cr>g@
