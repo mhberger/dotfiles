@@ -62,7 +62,8 @@ Plugin 'tpope/vim-jdaddy'
 Plugin 'tpope/vim-rsi'
 Plugin 'thinca/vim-quickrun'
 " Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'nelstrom/vim-markdown-folding'
+" Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'masukomi/vim-markdown-folding'
 Plugin 'coderifous/textobj-word-column.vim'
 Plugin 'rking/ag.vim'
 Plugin 'lifepillar/vim-solarized8'
@@ -238,8 +239,8 @@ set tildeop
   " Make a virtual oracle table using DUAL
   nnoremap <Leader>du :%norm Iselect 'A' file_name from dual union all
   " Only show lines containing search string – from http://vim.wikia.com/wiki/Folding_with_Regular_Expression
-  nnoremap <Leader>z :setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\\|\\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0 foldcolumn=2<CR>
-  command! -nargs=+ Foldsearch exe "normal /".<q-args>."^M" | setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\|\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0 foldcolumn=2
+  "nnoremap <Leader>z :setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\\|\\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0 foldcolumn=2<CR>
+  "command! -nargs=+ Foldsearch exe "normal /".<q-args>."^M" | setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\|\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0 foldcolumn=2
   " From vimcasts
   vnoremap . :norm.<cr>
 
@@ -659,7 +660,10 @@ command! -nargs=0 ToggleSmartQuote call textobj#quote#educate#toggleMappings()
 " delcommand Educate
 " delcommand NoEducate
 " delcommand ToggleEducate
-
+"
+" Wrap longlines
+command! -nargs=* WrapOn set wrap linebreak nolist
+command! -nargs=* WrapOff set nowrap nolinebreak list
 
 " Preload the man plugin.
 runtime! ftplugin/man.vim
