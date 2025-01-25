@@ -122,21 +122,21 @@ config.keys = {
     },
   },
   {
-    key = 'E',
+    key = 'e',
     mods = 'CMD',
     -- action = wezterm.action.EmitEvent 'show-font-size',
     action = wezterm.action.EmitEvent 'show-wezterm-config',
   },
   {
-    key = '9',
-    mods = 'ALT',
-    action = wezterm.action.ShowLauncherArgs { flags = 'FUZZY|KEY_ASSIGNMENTS|TABS|WORKSPACES' },
+    key = 'd',
+    mods = 'SHIFT|CMD',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
   {
-    key = 'w',
+    key = 'd',
     mods = 'CMD',
-    action = wezterm.action.CloseCurrentTab { confirm = true },
-  },
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  }
 }
 
 for i = 1, 8 do
