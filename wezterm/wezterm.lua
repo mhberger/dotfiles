@@ -93,7 +93,7 @@ wezterm.on('update-status', function(window)
     -- Then we draw our text
     { Background = { Color = bg } },
     { Foreground = { Color = fg } },
-    { Text = ' ' .. window:window_id() + 1 .. '… ' },
+    { Text = ' ' .. window:window_id() + 1 .. ' • ' .. window:active_workspace() .. '…' },
   }))
 end)
 
@@ -126,6 +126,16 @@ config.keys = {
     mods = 'CMD',
     -- action = wezterm.action.EmitEvent 'show-font-size',
     action = wezterm.action.EmitEvent 'show-wezterm-config',
+  },
+  {
+    key = '9',
+    mods = 'ALT',
+    action = wezterm.action.ShowLauncherArgs { flags = 'FUZZY|KEY_ASSIGNMENTS|TABS|WORKSPACES' },
+  },
+  {
+    key = 'w',
+    mods = 'CMD',
+    action = wezterm.action.CloseCurrentPane { confirm = true },
   },
   {
     key = 'd',
