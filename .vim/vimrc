@@ -28,6 +28,8 @@ let g:quickrun_no_default_key_mappings = 1
 "nmap ,r <Plug>(quickrun) -outputter/buffer/name 'joe'
 " nnoremap <Leader>r :QuickRun -outputter/buffer/into '1' <CR>
 nnoremap <D-r> :QuickRun -outputter/buffer/into '1' <CR>
+" TODO 2025-01-27 figure out how to get quickrun to pickup from shebang
+nnoremap <D-R> :QuickRun bun -outputter/buffer/into '1' <CR>
 " Save previous search, remove all trailing spaces; restore previous search; turn off highlighting.
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nnoremap <silent> <F6> :se wrap!<CR>
