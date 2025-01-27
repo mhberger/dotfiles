@@ -146,6 +146,11 @@ config.keys = {
     key = 'd',
     mods = 'CMD',
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'Enter',
+    mods = 'CMD',
+    action = wezterm.action.TogglePaneZoomState,
   }
 }
 
