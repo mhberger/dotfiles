@@ -148,6 +148,26 @@ config.keys = {
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   {
+    key = 'DownArrow',
+    mods = 'SHIFT|CMD',
+    action = wezterm.action.ActivatePaneDirection("Down"),
+  },
+  {
+    key = 'UpArrow',
+    mods = 'SHIFT|CMD',
+    action = wezterm.action.ActivatePaneDirection("Up"),
+  },
+  {
+    key = 'LeftArrow',
+    mods = 'SHIFT|CMD',
+    action = wezterm.action.ActivatePaneDirection("Left"),
+  },
+  {
+    key = 'RightArrow',
+    mods = 'SHIFT|CMD',
+    action = wezterm.action.ActivatePaneDirection("Right"),
+  },
+  {
     key = 'Enter',
     mods = 'CMD',
     action = wezterm.action.TogglePaneZoomState,
