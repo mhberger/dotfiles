@@ -3,6 +3,11 @@ export GIT_AUTHOR_NAME='Mark Berger'
 export GIT_COMMITTER_EMAIL=mark.berger@moothall.com
 export GIT_COMMITTER_NAME='Mark Berger'
 
+export GIT_AUTHOR_EMAIL=mark@mhb.nz
+export GIT_AUTHOR_NAME='Mark Berger'
+export GIT_COMMITTER_EMAIL=mark@mhb.nz
+export GIT_COMMITTER_NAME='Mark Berger'
+
 alias ga='git add'
 alias gai='git add --interactive'
 alias gap='git add --patch'
