@@ -32,6 +32,7 @@ alias gls='git ls-files -s'
 alias grv='git remote -v'
 alias gs='git status'
 alias gsh='git show --name-status --oneline'
+alias gitit='git init && git commit -m "woot toot, here we go 😃" --allow-empty'
 
 alias tm='tmux'
 alias tmn='tmux new -s'

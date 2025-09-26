@@ -6,6 +6,8 @@ font-thicken=true
 font-size=16.5
 theme=Builtin Solarized Light
 
+window-padding-x = 8
+
 # ghostty +show-config | grep -v palette
 # font-family = PragmataPro Mono
 # font-family-bold = PragmataPro Mono
