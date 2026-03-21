@@ -4,7 +4,8 @@ font-family-bold = PragmataPro Mono Bold
 font-family-italic = PragmataPro Mono Italic
 font-thicken=true
 font-size=16.5
-theme=Builtin Solarized Light
+#theme=Builtin Solarized Light
+theme=Selenized Light
 
 window-padding-x = 8
 
